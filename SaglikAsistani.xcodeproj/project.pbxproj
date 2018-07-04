@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		EA69FAF320ED6C350052930E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FAF220ED6C350052930E /* AppDelegate.swift */; };
-		EA69FAF520ED6C350052930E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FAF420ED6C350052930E /* ViewController.swift */; };
+		EA69FAF520ED6C350052930E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FAF420ED6C350052930E /* LoginViewController.swift */; };
 		EA69FAF820ED6C350052930E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA69FAF620ED6C350052930E /* Main.storyboard */; };
 		EA69FAFA20ED6C360052930E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA69FAF920ED6C360052930E /* Assets.xcassets */; };
 		EA69FAFD20ED6C360052930E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA69FAFB20ED6C360052930E /* LaunchScreen.storyboard */; };
 		EA69FB0820ED6C360052930E /* SaglikAsistaniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FB0720ED6C360052930E /* SaglikAsistaniTests.swift */; };
 		EA69FB1320ED6C360052930E /* SaglikAsistaniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FB1220ED6C360052930E /* SaglikAsistaniUITests.swift */; };
+		EA69FB2520ED7EA60052930E /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FB2420ED7EA60052930E /* Verification.swift */; };
+		EA69FB2820ED83450052930E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FB2720ED83450052930E /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,7 @@
 /* Begin PBXFileReference section */
 		EA69FAEF20ED6C350052930E /* SaglikAsistani.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaglikAsistani.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA69FAF220ED6C350052930E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EA69FAF420ED6C350052930E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EA69FAF420ED6C350052930E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EA69FAF720ED6C350052930E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA69FAF920ED6C360052930E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA69FAFC20ED6C360052930E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		EA69FB0E20ED6C360052930E /* SaglikAsistaniUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaglikAsistaniUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA69FB1220ED6C360052930E /* SaglikAsistaniUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaglikAsistaniUITests.swift; sourceTree = "<group>"; };
 		EA69FB1420ED6C360052930E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA69FB2420ED7EA60052930E /* Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
+		EA69FB2720ED83450052930E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +102,12 @@
 			isa = PBXGroup;
 			children = (
 				EA69FAF220ED6C350052930E /* AppDelegate.swift */,
-				EA69FAF420ED6C350052930E /* ViewController.swift */,
 				EA69FAF620ED6C350052930E /* Main.storyboard */,
-				EA69FAF920ED6C360052930E /* Assets.xcassets */,
-				EA69FAFB20ED6C360052930E /* LaunchScreen.storyboard */,
 				EA69FAFE20ED6C360052930E /* Info.plist */,
+				EA69FB2120ED6C960052930E /* SignIn */,
+				EA69FB2620ED83140052930E /* SignUp */,
+				EA69FB2320ED7EA00052930E /* Verification */,
+				EA69FB2020ED6C8B0052930E /* Supporting Files */,
 			);
 			path = SaglikAsistani;
 			sourceTree = "<group>";
@@ -123,6 +128,39 @@
 				EA69FB1420ED6C360052930E /* Info.plist */,
 			);
 			path = SaglikAsistaniUITests;
+			sourceTree = "<group>";
+		};
+		EA69FB2020ED6C8B0052930E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EA69FAF920ED6C360052930E /* Assets.xcassets */,
+				EA69FAFB20ED6C360052930E /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA69FB2120ED6C960052930E /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				EA69FAF420ED6C350052930E /* LoginViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		EA69FB2320ED7EA00052930E /* Verification */ = {
+			isa = PBXGroup;
+			children = (
+				EA69FB2420ED7EA60052930E /* Verification.swift */,
+			);
+			path = Verification;
+			sourceTree = "<group>";
+		};
+		EA69FB2620ED83140052930E /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				EA69FB2720ED83450052930E /* SignUpViewController.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +294,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA69FAF520ED6C350052930E /* ViewController.swift in Sources */,
+				EA69FAF520ED6C350052930E /* LoginViewController.swift in Sources */,
+				EA69FB2820ED83450052930E /* SignUpViewController.swift in Sources */,
+				EA69FB2520ED7EA60052930E /* Verification.swift in Sources */,
 				EA69FAF320ED6C350052930E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
