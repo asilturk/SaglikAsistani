@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3060593FE2D08E820EB0774E /* Pods_SaglikAsistaniTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B77D648832EFA81AD629B9 /* Pods_SaglikAsistaniTests.framework */; };
+		C893F9B134E9A97BD274E56F /* Pods_SaglikAsistani.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76DC74CAD7F3D6FB5E676F00 /* Pods_SaglikAsistani.framework */; };
+		CC37F7E6FA2978F7C74B051A /* Pods_SaglikAsistaniUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386BFCCE1C59E3FC2F211835 /* Pods_SaglikAsistaniUITests.framework */; };
 		EA69FAF320ED6C350052930E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FAF220ED6C350052930E /* AppDelegate.swift */; };
 		EA69FAF520ED6C350052930E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FAF420ED6C350052930E /* LoginViewController.swift */; };
 		EA69FAF820ED6C350052930E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA69FAF620ED6C350052930E /* Main.storyboard */; };
@@ -36,6 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D4AC9473E2D83086614935D /* Pods-SaglikAsistaniTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniTests/Pods-SaglikAsistaniTests.release.xcconfig"; sourceTree = "<group>"; };
+		386BFCCE1C59E3FC2F211835 /* Pods_SaglikAsistaniUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaglikAsistaniUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		468DE5B243C33016468AB186 /* Pods-SaglikAsistani.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistani.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistani/Pods-SaglikAsistani.debug.xcconfig"; sourceTree = "<group>"; };
+		59B119D957E62B1F9F9FA157 /* Pods-SaglikAsistaniUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniUITests/Pods-SaglikAsistaniUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		76DC74CAD7F3D6FB5E676F00 /* Pods_SaglikAsistani.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaglikAsistani.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BABC8258414E9AC68126E42 /* Pods-SaglikAsistani.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistani.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistani/Pods-SaglikAsistani.release.xcconfig"; sourceTree = "<group>"; };
+		AF8EB7B32AC2CF3567CB4B79 /* Pods-SaglikAsistaniTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniTests/Pods-SaglikAsistaniTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D5B77D648832EFA81AD629B9 /* Pods_SaglikAsistaniTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaglikAsistaniTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA69FAEF20ED6C350052930E /* SaglikAsistani.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaglikAsistani.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA69FAF220ED6C350052930E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA69FAF420ED6C350052930E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +62,7 @@
 		EA69FB1420ED6C360052930E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA69FB2420ED7EA60052930E /* Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
 		EA69FB2720ED83450052930E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		EE867011A702A4A9E41BFE96 /* Pods-SaglikAsistaniUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniUITests/Pods-SaglikAsistaniUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C893F9B134E9A97BD274E56F /* Pods_SaglikAsistani.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3060593FE2D08E820EB0774E /* Pods_SaglikAsistaniTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +86,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC37F7E6FA2978F7C74B051A /* Pods_SaglikAsistaniUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50A847955BDBAEFFB5E00AA7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				468DE5B243C33016468AB186 /* Pods-SaglikAsistani.debug.xcconfig */,
+				7BABC8258414E9AC68126E42 /* Pods-SaglikAsistani.release.xcconfig */,
+				AF8EB7B32AC2CF3567CB4B79 /* Pods-SaglikAsistaniTests.debug.xcconfig */,
+				2D4AC9473E2D83086614935D /* Pods-SaglikAsistaniTests.release.xcconfig */,
+				59B119D957E62B1F9F9FA157 /* Pods-SaglikAsistaniUITests.debug.xcconfig */,
+				EE867011A702A4A9E41BFE96 /* Pods-SaglikAsistaniUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		61F29BF7B8840E053062404B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76DC74CAD7F3D6FB5E676F00 /* Pods_SaglikAsistani.framework */,
+				D5B77D648832EFA81AD629B9 /* Pods_SaglikAsistaniTests.framework */,
+				386BFCCE1C59E3FC2F211835 /* Pods_SaglikAsistaniUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EA69FAE620ED6C350052930E = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +123,8 @@
 				EA69FB0620ED6C360052930E /* SaglikAsistaniTests */,
 				EA69FB1120ED6C360052930E /* SaglikAsistaniUITests */,
 				EA69FAF020ED6C350052930E /* Products */,
+				50A847955BDBAEFFB5E00AA7 /* Pods */,
+				61F29BF7B8840E053062404B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -170,9 +210,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA69FB1720ED6C360052930E /* Build configuration list for PBXNativeTarget "SaglikAsistani" */;
 			buildPhases = (
+				A708CBDFCF3B2FCE118514F9 /* [CP] Check Pods Manifest.lock */,
 				EA69FAEB20ED6C350052930E /* Sources */,
 				EA69FAEC20ED6C350052930E /* Frameworks */,
 				EA69FAED20ED6C350052930E /* Resources */,
+				0A1393D2896515524168954C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -187,6 +229,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA69FB1A20ED6C360052930E /* Build configuration list for PBXNativeTarget "SaglikAsistaniTests" */;
 			buildPhases = (
+				2BA6667B7033F642E3CFF9C5 /* [CP] Check Pods Manifest.lock */,
 				EA69FAFF20ED6C360052930E /* Sources */,
 				EA69FB0020ED6C360052930E /* Frameworks */,
 				EA69FB0120ED6C360052930E /* Resources */,
@@ -205,6 +248,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA69FB1D20ED6C360052930E /* Build configuration list for PBXNativeTarget "SaglikAsistaniUITests" */;
 			buildPhases = (
+				18382E602DE6C706FA2E059E /* [CP] Check Pods Manifest.lock */,
 				EA69FB0A20ED6C360052930E /* Sources */,
 				EA69FB0B20ED6C360052930E /* Frameworks */,
 				EA69FB0C20ED6C360052930E /* Resources */,
@@ -288,6 +332,81 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A1393D2896515524168954C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SaglikAsistani/Pods-SaglikAsistani-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SaglikAsistani/Pods-SaglikAsistani-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		18382E602DE6C706FA2E059E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SaglikAsistaniUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2BA6667B7033F642E3CFF9C5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SaglikAsistaniTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A708CBDFCF3B2FCE118514F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SaglikAsistani-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EA69FAEB20ED6C350052930E /* Sources */ = {
@@ -468,6 +587,7 @@
 		};
 		EA69FB1820ED6C360052930E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 468DE5B243C33016468AB186 /* Pods-SaglikAsistani.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -486,6 +606,7 @@
 		};
 		EA69FB1920ED6C360052930E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BABC8258414E9AC68126E42 /* Pods-SaglikAsistani.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -504,6 +625,7 @@
 		};
 		EA69FB1B20ED6C360052930E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF8EB7B32AC2CF3567CB4B79 /* Pods-SaglikAsistaniTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -525,6 +647,7 @@
 		};
 		EA69FB1C20ED6C360052930E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D4AC9473E2D83086614935D /* Pods-SaglikAsistaniTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -546,6 +669,7 @@
 		};
 		EA69FB1E20ED6C360052930E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59B119D957E62B1F9F9FA157 /* Pods-SaglikAsistaniUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -566,6 +690,7 @@
 		};
 		EA69FB1F20ED6C360052930E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE867011A702A4A9E41BFE96 /* Pods-SaglikAsistaniUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
