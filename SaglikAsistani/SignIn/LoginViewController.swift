@@ -30,6 +30,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     
     @IBAction func signInButtonTouched(_ sender: UIButton) {
+        self.emailVerification(email: self.emailTextField.text)
         self.hideKeyboard()
     }
     
@@ -56,31 +57,32 @@ extension LoginViewController {
         self.signUpButton.layer.cornerRadius = 4.0
     }
     
-    fileprivate func emailVerification(email: String) {
-        guard let email = self.emailTextField.text, email != "" else {
-            // TODO: alert basilacak.
+    fileprivate func emailVerification(email: String?) {
+        guard let email = email, email != "" else {
+            self.showCardViewAlert(title: nil, message: "Email alanı boş bırakılamaz", type: .Error)
             return
         }
         
         let (result, message) = Verification.emailValidate(email)
         
-        if !result {
-            // TODO: message alert e basilacak.
+        if message != nil {
+            self.showCardViewAlert(title: nil, message: message!, type: .Error)
             return
         }
         
+        self.passwordVerification(password: self.passwordTextField.text)
     }
     
-    fileprivate func passwordVerification(password: String) {
-        guard let password = self.passwordTextField.text, password != "" else {
-            // TODO: alert basilacak.
+    fileprivate func passwordVerification(password: String?) {
+        guard let password = password, password != "" else {
+            self.showCardViewAlert(title: nil, message: "Şifre alanı boş bırakılamaz", type: .Error)
             return
         }
         
         let (result, message) = Verification.passwordValidate(password)
         
-        if !result {
-            // TODO: message alert e basilacak.
+        if message != nil {
+            self.showCardViewAlert(title: nil, message: message!, type: .Error)
             return
         }
         

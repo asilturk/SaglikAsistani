@@ -19,7 +19,7 @@ class Verification: NSObject {
     
     static func emailValidate(_ value:String) -> (result: Bool, errorMessage: String?) {
         if (value.count < 6) {
-            return (false, "Email adresi çok kısa, teknik olarak 6 karakterden daha fazla olmalıdır.")
+            return (false, "Email adresi 6 karakterden fazla olmalıdır.")
         }
         
         guard let regexValidator = try? NSRegularExpression(pattern: "[a-zA-Z0-9_+-.]+@[a-zA-Z]+\\.[a-zA-Z]{2,6}", options: .caseInsensitive) else {
