@@ -63,7 +63,7 @@ extension LoginViewController {
             return
         }
         
-        let (result, message) = Verification.emailValidate(email)
+        let (result, message) = Validator.emailValidate(email)
         
         if message != nil {
             self.showCardViewAlert(title: nil, message: message!, type: .Error)
@@ -79,7 +79,7 @@ extension LoginViewController {
             return
         }
         
-        let (result, message) = Verification.passwordValidate(password)
+        let (result, message) = Validator.passwordValidate(password)
         
         if message != nil {
             self.showCardViewAlert(title: nil, message: message!, type: .Error)
@@ -94,9 +94,13 @@ extension LoginViewController {
 }
 
 // MARK: - Hide Keyboard
-extension LoginViewController {
-    override func touchesBegan(_ touches: Set<UITouch>,
-                               with event: UIEvent?) {
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     

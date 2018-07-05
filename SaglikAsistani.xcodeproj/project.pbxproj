@@ -10,7 +10,7 @@
 		3060593FE2D08E820EB0774E /* Pods_SaglikAsistaniTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B77D648832EFA81AD629B9 /* Pods_SaglikAsistaniTests.framework */; };
 		C893F9B134E9A97BD274E56F /* Pods_SaglikAsistani.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76DC74CAD7F3D6FB5E676F00 /* Pods_SaglikAsistani.framework */; };
 		CC37F7E6FA2978F7C74B051A /* Pods_SaglikAsistaniUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386BFCCE1C59E3FC2F211835 /* Pods_SaglikAsistaniUITests.framework */; };
-		EA20709D20ED97420074AF15 /* UIViewController+showMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20709C20ED97420074AF15 /* UIViewController+showMessage.swift */; };
+		EA20709D20ED97420074AF15 /* SwiftMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20709C20ED97420074AF15 /* SwiftMessages.swift */; };
 		EA69FAF320ED6C350052930E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FAF220ED6C350052930E /* AppDelegate.swift */; };
 		EA69FAF520ED6C350052930E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FAF420ED6C350052930E /* LoginViewController.swift */; };
 		EA69FAF820ED6C350052930E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA69FAF620ED6C350052930E /* Main.storyboard */; };
@@ -18,7 +18,7 @@
 		EA69FAFD20ED6C360052930E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA69FAFB20ED6C360052930E /* LaunchScreen.storyboard */; };
 		EA69FB0820ED6C360052930E /* SaglikAsistaniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FB0720ED6C360052930E /* SaglikAsistaniTests.swift */; };
 		EA69FB1320ED6C360052930E /* SaglikAsistaniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FB1220ED6C360052930E /* SaglikAsistaniUITests.swift */; };
-		EA69FB2520ED7EA60052930E /* Verification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FB2420ED7EA60052930E /* Verification.swift */; };
+		EA69FB2520ED7EA60052930E /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FB2420ED7EA60052930E /* Validator.swift */; };
 		EA69FB2820ED83450052930E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FB2720ED83450052930E /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +48,7 @@
 		7BABC8258414E9AC68126E42 /* Pods-SaglikAsistani.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistani.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistani/Pods-SaglikAsistani.release.xcconfig"; sourceTree = "<group>"; };
 		AF8EB7B32AC2CF3567CB4B79 /* Pods-SaglikAsistaniTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniTests/Pods-SaglikAsistaniTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5B77D648832EFA81AD629B9 /* Pods_SaglikAsistaniTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaglikAsistaniTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA20709C20ED97420074AF15 /* UIViewController+showMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+showMessage.swift"; sourceTree = "<group>"; };
+		EA20709C20ED97420074AF15 /* SwiftMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMessages.swift; sourceTree = "<group>"; };
 		EA69FAEF20ED6C350052930E /* SaglikAsistani.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaglikAsistani.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA69FAF220ED6C350052930E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA69FAF420ED6C350052930E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 		EA69FB0E20ED6C360052930E /* SaglikAsistaniUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaglikAsistaniUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA69FB1220ED6C360052930E /* SaglikAsistaniUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaglikAsistaniUITests.swift; sourceTree = "<group>"; };
 		EA69FB1420ED6C360052930E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EA69FB2420ED7EA60052930E /* Verification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verification.swift; sourceTree = "<group>"; };
+		EA69FB2420ED7EA60052930E /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		EA69FB2720ED83450052930E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EE867011A702A4A9E41BFE96 /* Pods-SaglikAsistaniUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniUITests/Pods-SaglikAsistaniUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,7 +121,7 @@
 		EA20709B20ED97310074AF15 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EA20709C20ED97420074AF15 /* UIViewController+showMessage.swift */,
+				EA20709C20ED97420074AF15 /* SwiftMessages.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -201,7 +201,7 @@
 		EA69FB2320ED7EA00052930E /* Verification */ = {
 			isa = PBXGroup;
 			children = (
-				EA69FB2420ED7EA60052930E /* Verification.swift */,
+				EA69FB2420ED7EA60052930E /* Validator.swift */,
 			);
 			path = Verification;
 			sourceTree = "<group>";
@@ -426,9 +426,9 @@
 			files = (
 				EA69FAF520ED6C350052930E /* LoginViewController.swift in Sources */,
 				EA69FB2820ED83450052930E /* SignUpViewController.swift in Sources */,
-				EA69FB2520ED7EA60052930E /* Verification.swift in Sources */,
+				EA69FB2520ED7EA60052930E /* Validator.swift in Sources */,
 				EA69FAF320ED6C350052930E /* AppDelegate.swift in Sources */,
-				EA20709D20ED97420074AF15 /* UIViewController+showMessage.swift in Sources */,
+				EA20709D20ED97420074AF15 /* SwiftMessages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

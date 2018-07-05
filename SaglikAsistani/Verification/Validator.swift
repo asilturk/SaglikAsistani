@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Verification: NSObject {
+class Validator: NSObject {
     
     static func passwordValidate(_ value:String) -> (result: Bool, errorMessage: String?) {
         guard value.count >= 6 else {
@@ -31,5 +31,17 @@ class Verification: NSObject {
         }
         
         return (true, nil)
+    }
+    
+    static func nameValidate(text: String) -> Bool {
+        let regEx = "([\\s\\S]*) ([0-9]*)(.*)"
+        let test = NSPredicate(format:"SELF MATCHES %@", regEx)
+        return test.evaluate(with: text)
+    }
+    
+    static func numberValidate( _ number: String) -> Bool {
+        let regEx = "^[0-9]+$"
+        let test = NSPredicate(format:"SELF MATCHES %@", regEx)
+        return test.evaluate(with: number)
     }
 }
