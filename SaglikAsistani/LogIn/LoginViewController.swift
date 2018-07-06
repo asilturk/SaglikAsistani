@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        self.setupButtonsProperties()
+        setupKeyboardTypeForTextFields()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,8 +29,8 @@ class LoginViewController: UIViewController {
 // MARK: - Action Buttons
 extension LoginViewController {
     
-    @IBAction func signInButtonTouched(_ sender: UIButton) {
-        self.emailVerification(email: self.emailTextField.text)
+    @IBAction func LoginButtonTouched(_ sender: UIButton) {
+        self.validateUserValues()
         self.hideKeyboard()
     }
     
@@ -41,56 +41,46 @@ extension LoginViewController {
     @IBAction func forgotPasswordButtonTouched(_ sender: UIButton) {
     }
     
-    
 }
 
 // MARK: - Auxiliary Methods
 extension LoginViewController {
-    fileprivate func setupButtonsProperties() {
-        let borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
-        
-        self.singInButton.layer.borderWidth = 0.5
-        self.signUpButton.layer.borderWidth = 0.5
-        self.singInButton.layer.borderColor = borderColor
-        self.signUpButton.layer.borderColor = borderColor
-        self.singInButton.layer.cornerRadius = 4.0
-        self.signUpButton.layer.cornerRadius = 4.0
-    }
     
-    fileprivate func emailVerification(email: String?) {
-        guard let email = email, email != "" else {
-            self.showCardViewAlert(title: nil, message: "Email alanı boş bırakılamaz", type: .Error)
+    fileprivate func validateUserValues() {
+        guard let email = self.emailTextField.text, email != "" else {
+            self.showCardViewAlert(title: nil, message: "Email adresinizi giriniz", type: .Warning)
             return
         }
         
-        let (result, message) = Validator.emailValidate(email)
-        
-        if message != nil {
-            self.showCardViewAlert(title: nil, message: message!, type: .Error)
+        guard let password = passwordTextField.text, password != "" else {
+            self.showCardViewAlert(title: nil, message: "Şifrenizi giriniz", type: .Warning)
             return
         }
         
-        self.passwordVerification(password: self.passwordTextField.text)
-    }
-    
-    fileprivate func passwordVerification(password: String?) {
-        guard let password = password, password != "" else {
-            self.showCardViewAlert(title: nil, message: "Şifre alanı boş bırakılamaz", type: .Error)
+        let emailResult = Validator.emailValidate(email)
+        let passwordResult = Validator.passwordValidate(password)
+        
+        if !emailResult.result {
+            self.showCardViewAlert(title: nil, message: emailResult.errorMessage!, type: .Error)
             return
         }
         
-        let (result, message) = Validator.passwordValidate(password)
-        
-        if message != nil {
-            self.showCardViewAlert(title: nil, message: message!, type: .Error)
+        if !passwordResult.result {
+            self.showCardViewAlert(title: nil, message: passwordResult.errorMessage!, type: .Error)
             return
         }
         
+        LoginCoordinator.shared.loginRequest(email, password)
     }
     
     fileprivate func hideNavigationBar() {
         self.navigationController?.isNavigationBarHidden = true
     }
+    
+    fileprivate func setupKeyboardTypeForTextFields() {
+        emailTextField.keyboardType = .emailAddress
+    }
+    
 }
 
 // MARK: - Hide Keyboard

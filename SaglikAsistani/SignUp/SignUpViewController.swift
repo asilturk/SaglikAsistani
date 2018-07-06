@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import SwiftMessages
+
+// TODO: telefon 05 ile baslamasini saglayacak kontroller yazilmali
+// unwind segue yazilmali, kayit basarili oldugunda login ekrana donduren. 
 
 class SignUpViewController: UIViewController {
     
@@ -23,7 +27,7 @@ class SignUpViewController: UIViewController {
     
     // kullanici sozlesmesine izin verilip verilmedigini kontrol eder
     lazy var approved: Bool = {
-       return false
+        return false
     }()
     
     lazy var dateFormatter: DateFormatter? = {
@@ -34,11 +38,11 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupKeyboardTypeForTextFields()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.showNavigationBar()
     }
 }
@@ -58,18 +62,62 @@ extension SignUpViewController {
     
     /// Her bir alan icin kontrolleri gerceklestirir
     @IBAction func signUpButtonTouched() {
+        
         if !self.nameFormatValidated() { return }
         if !self.emailFormatValidated() { return }
+        if !self.phoneNumberValidated() { return }
         if !self.genderValidated().selected { return }
+        if !self.userBirthdaySelected() { return }
         if !self.weightFormatValidated() { return }
         if !self.heightFormatValidated() { return }
         if !self.userAgreementValidated() { return }
         
-        self.showCardViewAlert(title: "Kayıt işlemi başarılı", message: "", type: .Success)
+        // TODO: - Kayit basarili oldugunda ana menuye donup kayit basarili desin
+        SignUpCoordinator.shared.signUpRequest(firmId: 1,
+                                               name: self.nameTextField.text ?? "",
+                                               email: self.emailTextField.text ?? "",
+                                               phoneNumber: self.phoneTextField.text ?? "",
+                                               height: self.heighTextField.text ?? "",
+                                               weight: self.weightTextField.text ?? "",
+                                               birthday: self.birthdayTextField.text ?? "",
+                                               gender: self.gender ?? "",
+                                               completion:
+            { (success, error) in
+                if success {
+                    // TODO: Burda unwind cagirmali
+                } else {
+                    self.showCardViewAlert(title: "Bir sorunumuz var", message: error?.localizedDescription ?? "", type: .Error)
+                }
+        })
+        
     }
     
     @IBAction func genderTouched(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 { self.gender = "Erkek"} else { self.gender = "Kadın"}
+        if sender.selectedSegmentIndex == 0 { self.gender = "Erkek" } else { self.gender = "Kadın"}
+    }
+    
+    
+    /// Kayit islemi basarili olmasi durumunda kullanicinin login ekranina yonlendirilmesi icin unwind segue tetiklemede kullanilir.
+    @IBAction func triggerUnwindSegue() { }
+}
+
+// MARK: - Auxiliary Methods
+extension SignUpViewController {
+    
+    fileprivate func showNavigationBar() {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    fileprivate func setupKeyboardTypeForTextFields() {
+        emailTextField.keyboardType = .emailAddress
+        phoneTextField.keyboardType = .numberPad
+        weightTextField.keyboardType = .numberPad
+        heighTextField.keyboardType = .numberPad
+    }
+    
+    
+    @objc fileprivate func backLoginView() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -85,7 +133,7 @@ extension SignUpViewController {
         let result = Validator.nameValidate(text: fullName)
         
         if !result {
-            self.showCardViewAlert(title: nil, message: "İsminizi kontrol ediniz", type: .Warning)
+            self.showCardViewAlert(title: "İsim soyisim eksik girildi", message: "Lütfen isim ve soyisim giriniz", type: .Warning)
             return false
         }
         
@@ -108,12 +156,14 @@ extension SignUpViewController {
         return true
     }
     
-    
-    // telefon girilmesi zorunlu olmadigindan burayi eklemedim
-    fileprivate func phoneFormatValidated() -> Bool {
+    fileprivate func phoneNumberValidated() -> Bool {
+        guard let phoneNumber = self.phoneTextField.text, phoneNumber != "" else {
+            self.showCardViewAlert(title: nil, message: "Telefon numarası boş bırakılamaz", type: .Warning)
+            return false
+        }
         
-        guard let phoneNumber = phoneTextField.text, phoneNumber != "" else {
-            self.showCardViewAlert(title: nil, message: "Telefon numarası boş bırakılamaz", type: .Error)
+        if !Validator.numberValidate(phoneNumber) || phoneNumber.count != 11 {
+            self.showCardViewAlert(title: nil, message: "Telefon numarası 11 haneli rakam olmalıdır", type: .Warning)
             return false
         }
         
@@ -123,6 +173,11 @@ extension SignUpViewController {
     fileprivate func weightFormatValidated() -> Bool {
         guard let weight = weightTextField.text, weight != "" else {
             self.showCardViewAlert(title: nil, message: "Kilonuzu giriniz", type: .Error)
+            return false
+        }
+        
+        if !(weight.count == 2 || weight.count == 3) {
+            self.showCardViewAlert(title: nil, message: "Kilonuzu kontrol edin", type: .Warning)
             return false
         }
         
@@ -140,6 +195,11 @@ extension SignUpViewController {
             return false
         }
         
+        if !(height.count == 2 || height.count == 3) {
+            self.showCardViewAlert(title: nil, message: "Boyunuzu kontrol edin", type: .Warning)
+            return false
+        }
+        
         if !Validator.numberValidate(height) {
             self.showCardViewAlert(title: nil, message: "Boyunuz sayısal değer olmalı", type: .Error)
             return false
@@ -150,7 +210,7 @@ extension SignUpViewController {
     
     fileprivate func userAgreementValidated() -> Bool {
         if !approved {
-            self.showCardViewAlert(title: nil, message: "Kullanici sözleşmesini kabul etmelisiniz", type: .Info)
+            self.showCardViewAlert(title: nil, message: "Kullanıcı sözleşmesini kabul etmelisiniz", type: .Info)
         }
         
         return approved
@@ -165,22 +225,20 @@ extension SignUpViewController {
         }
     }
     
-    
-}
-
-// MARK: - Auxiliary Methods
-extension SignUpViewController {
-    
-    fileprivate func showNavigationBar() {
-        self.navigationController?.isNavigationBarHidden = false
+    fileprivate func userBirthdaySelected() -> Bool {
+        if birthdayTextField.text?.isEmpty ?? true {
+            self.showCardViewAlert(title: nil, message: "Doğum tarihi giriniz.", type: .Error)
+            return false
+        } else {
+            return true
+        }
     }
-    
-    
     
 }
 
 // MARK: - Hide Keyboard
 extension SignUpViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
@@ -194,6 +252,7 @@ extension SignUpViewController: UITextFieldDelegate {
 
 // MARK: - DatePicker
 extension SignUpViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -225,7 +284,6 @@ extension SignUpViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         textField.inputAccessoryView = toolBar
-        
     }
     
     @objc func doneClick() {

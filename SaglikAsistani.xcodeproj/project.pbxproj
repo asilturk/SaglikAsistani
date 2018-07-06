@@ -11,6 +11,8 @@
 		C893F9B134E9A97BD274E56F /* Pods_SaglikAsistani.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76DC74CAD7F3D6FB5E676F00 /* Pods_SaglikAsistani.framework */; };
 		CC37F7E6FA2978F7C74B051A /* Pods_SaglikAsistaniUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386BFCCE1C59E3FC2F211835 /* Pods_SaglikAsistaniUITests.framework */; };
 		EA20709D20ED97420074AF15 /* SwiftMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20709C20ED97420074AF15 /* SwiftMessages.swift */; };
+		EA5B81A320EFD6B300AC6F13 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B81A220EFD6B300AC6F13 /* LoginCoordinator.swift */; };
+		EA5B81A520EFD7A600AC6F13 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B81A420EFD7A600AC6F13 /* Server.swift */; };
 		EA69FAF320ED6C350052930E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FAF220ED6C350052930E /* AppDelegate.swift */; };
 		EA69FAF520ED6C350052930E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FAF420ED6C350052930E /* LoginViewController.swift */; };
 		EA69FAF820ED6C350052930E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA69FAF620ED6C350052930E /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 		EA69FB1320ED6C360052930E /* SaglikAsistaniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FB1220ED6C360052930E /* SaglikAsistaniUITests.swift */; };
 		EA69FB2520ED7EA60052930E /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FB2420ED7EA60052930E /* Validator.swift */; };
 		EA69FB2820ED83450052930E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FB2720ED83450052930E /* SignUpViewController.swift */; };
+		EAC0059720EFE21D00648B48 /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC0059620EFE21D00648B48 /* SignUpCoordinator.swift */; };
+		EAC0059B20EFE53200648B48 /* ApplicationValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC0059A20EFE53200648B48 /* ApplicationValues.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,8 @@
 		AF8EB7B32AC2CF3567CB4B79 /* Pods-SaglikAsistaniTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniTests/Pods-SaglikAsistaniTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5B77D648832EFA81AD629B9 /* Pods_SaglikAsistaniTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaglikAsistaniTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA20709C20ED97420074AF15 /* SwiftMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMessages.swift; sourceTree = "<group>"; };
+		EA5B81A220EFD6B300AC6F13 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		EA5B81A420EFD7A600AC6F13 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		EA69FAEF20ED6C350052930E /* SaglikAsistani.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaglikAsistani.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA69FAF220ED6C350052930E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA69FAF420ED6C350052930E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +70,8 @@
 		EA69FB1420ED6C360052930E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA69FB2420ED7EA60052930E /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		EA69FB2720ED83450052930E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		EAC0059620EFE21D00648B48 /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
+		EAC0059A20EFE53200648B48 /* ApplicationValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationValues.swift; sourceTree = "<group>"; };
 		EE867011A702A4A9E41BFE96 /* Pods-SaglikAsistaniUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniUITests/Pods-SaglikAsistaniUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +134,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		EA5B81A620EFD7B800AC6F13 /* Application Values */ = {
+			isa = PBXGroup;
+			children = (
+				EA5B81A420EFD7A600AC6F13 /* Server.swift */,
+				EAC0059A20EFE53200648B48 /* ApplicationValues.swift */,
+			);
+			path = "Application Values";
+			sourceTree = "<group>";
+		};
 		EA69FAE620ED6C350052930E = {
 			isa = PBXGroup;
 			children = (
@@ -151,13 +168,14 @@
 		EA69FAF120ED6C350052930E /* SaglikAsistani */ = {
 			isa = PBXGroup;
 			children = (
+				EA5B81A620EFD7B800AC6F13 /* Application Values */,
 				EA20709B20ED97310074AF15 /* Extensions */,
 				EA69FAF220ED6C350052930E /* AppDelegate.swift */,
 				EA69FAF620ED6C350052930E /* Main.storyboard */,
 				EA69FAFE20ED6C360052930E /* Info.plist */,
-				EA69FB2120ED6C960052930E /* SignIn */,
+				EA69FB2120ED6C960052930E /* LogIn */,
 				EA69FB2620ED83140052930E /* SignUp */,
-				EA69FB2320ED7EA00052930E /* Verification */,
+				EA69FB2320ED7EA00052930E /* Validation */,
 				EA69FB2020ED6C8B0052930E /* Supporting Files */,
 			);
 			path = SaglikAsistani;
@@ -190,26 +208,28 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EA69FB2120ED6C960052930E /* SignIn */ = {
+		EA69FB2120ED6C960052930E /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
 				EA69FAF420ED6C350052930E /* LoginViewController.swift */,
+				EA5B81A220EFD6B300AC6F13 /* LoginCoordinator.swift */,
 			);
-			path = SignIn;
+			path = LogIn;
 			sourceTree = "<group>";
 		};
-		EA69FB2320ED7EA00052930E /* Verification */ = {
+		EA69FB2320ED7EA00052930E /* Validation */ = {
 			isa = PBXGroup;
 			children = (
 				EA69FB2420ED7EA60052930E /* Validator.swift */,
 			);
-			path = Verification;
+			path = Validation;
 			sourceTree = "<group>";
 		};
 		EA69FB2620ED83140052930E /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
 				EA69FB2720ED83450052930E /* SignUpViewController.swift */,
+				EAC0059620EFE21D00648B48 /* SignUpCoordinator.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -424,11 +444,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA5B81A320EFD6B300AC6F13 /* LoginCoordinator.swift in Sources */,
 				EA69FAF520ED6C350052930E /* LoginViewController.swift in Sources */,
 				EA69FB2820ED83450052930E /* SignUpViewController.swift in Sources */,
 				EA69FB2520ED7EA60052930E /* Validator.swift in Sources */,
+				EAC0059720EFE21D00648B48 /* SignUpCoordinator.swift in Sources */,
+				EAC0059B20EFE53200648B48 /* ApplicationValues.swift in Sources */,
 				EA69FAF320ED6C350052930E /* AppDelegate.swift in Sources */,
 				EA20709D20ED97420074AF15 /* SwiftMessages.swift in Sources */,
+				EA5B81A520EFD7A600AC6F13 /* Server.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
