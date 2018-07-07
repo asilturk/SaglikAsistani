@@ -54,7 +54,7 @@ extension UserCoordinator {
         
         postString += "user_id=\(userId)"
         postString += "&login_token=\(loginToken)"
-        postString += "&ios_notify_token=\()"
+        postString += "&ios_notify_token=\(ApplicaitonValues.notificationToken)"
         postString += "&platform=\(ApplicaitonValues.platform)"
         postString += "&versiyon=\(ApplicaitonValues.versionNumber)"
         
