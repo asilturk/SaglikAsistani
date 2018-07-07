@@ -273,6 +273,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwH-dD-QJ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9W6-Di-o7X">
+                    <connections>
+                        <action selector="triggerUnwindSegue" destination="nNp-BX-1vs" id="Wtv-xm-xUj"/>
+                        <segue destination="BbE-85-FXt" kind="unwind" unwindAction="unwindToLoginViewControllerWithSegue:" id="1L1-tV-7rP"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <exit id="BbE-85-FXt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2462" y="39"/>
         </scene>

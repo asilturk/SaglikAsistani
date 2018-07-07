@@ -41,6 +41,11 @@ extension LoginViewController {
     @IBAction func forgotPasswordButtonTouched(_ sender: UIButton) {
     }
     
+    
+    /// Kullanici kaydi basarili olduktan sonra login ekranina yonlendirilmesinde kullanilir
+    @IBAction func unwindToLoginViewController(segue:UIStoryboardSegue) {
+        self.showCardViewAlert(title: "Kayıt işlemi başarılı", message: "Şifre eposta adresinize gönderilmiştir.", type: .Info)
+    }
 }
 
 // MARK: - Auxiliary Methods

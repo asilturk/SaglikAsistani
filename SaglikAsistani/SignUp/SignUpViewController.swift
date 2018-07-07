@@ -58,44 +58,15 @@ extension SignUpViewController {
             self.userAgreementButton.setImage(#imageLiteral(resourceName: "non-approved-icon"), for: .normal)
         }
     }
-    
-    
+
     /// Her bir alan icin kontrolleri gerceklestirir
     @IBAction func signUpButtonTouched() {
-        
-        if !self.nameFormatValidated() { return }
-        if !self.emailFormatValidated() { return }
-        if !self.phoneNumberValidated() { return }
-        if !self.genderValidated().selected { return }
-        if !self.userBirthdaySelected() { return }
-        if !self.weightFormatValidated() { return }
-        if !self.heightFormatValidated() { return }
-        if !self.userAgreementValidated() { return }
-        
-        // TODO: - Kayit basarili oldugunda ana menuye donup kayit basarili desin
-        SignUpCoordinator.shared.signUpRequest(firmId: 1,
-                                               name: self.nameTextField.text ?? "",
-                                               email: self.emailTextField.text ?? "",
-                                               phoneNumber: self.phoneTextField.text ?? "",
-                                               height: self.heighTextField.text ?? "",
-                                               weight: self.weightTextField.text ?? "",
-                                               birthday: self.birthdayTextField.text ?? "",
-                                               gender: self.gender ?? "",
-                                               completion:
-            { (success, error) in
-                if success {
-                    // TODO: Burda unwind cagirmali
-                } else {
-                    self.showCardViewAlert(title: "Bir sorunumuz var", message: error?.localizedDescription ?? "", type: .Error)
-                }
-        })
-        
+        self.signUpProcess()
     }
     
     @IBAction func genderTouched(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 { self.gender = "Erkek" } else { self.gender = "Kadın"}
     }
-    
     
     /// Kayit islemi basarili olmasi durumunda kullanicinin login ekranina yonlendirilmesi icin unwind segue tetiklemede kullanilir.
     @IBAction func triggerUnwindSegue() { }
@@ -115,10 +86,36 @@ extension SignUpViewController {
         heighTextField.keyboardType = .numberPad
     }
     
-    
-    @objc fileprivate func backLoginView() {
-        self.navigationController?.popViewController(animated: true)
+    fileprivate func signUpProcess() {
+        // dogrulamalar
+        if !self.nameFormatValidated() { return }
+        if !self.emailFormatValidated() { return }
+        if !self.phoneNumberValidated() { return }
+        if !self.genderValidated().selected { return }
+        if !self.userBirthdaySelected() { return }
+        if !self.weightFormatValidated() { return }
+        if !self.heightFormatValidated() { return }
+        if !self.userAgreementValidated() { return }
+        
+        // giris islemleri
+        SignUpCoordinator.shared.signUpRequest(firmId: 1,
+                                               name: self.nameTextField.text ?? "",
+                                               email: self.emailTextField.text ?? "",
+                                               phoneNumber: self.phoneTextField.text ?? "",
+                                               height: self.heighTextField.text ?? "",
+                                               weight: self.weightTextField.text ?? "",
+                                               birthday: self.birthdayTextField.text ?? "",
+                                               gender: self.gender ?? "",
+                                               completion:
+            { (success, errorMessage) in
+                if success {
+                    self.triggerUnwindSegue()
+                } else {
+                    self.showCardViewAlert(title: "Bir sorunumuz var", message: errorMessage, type: .Error)
+                }
+        })
     }
+    
 }
 
 // MARK: - Validations
