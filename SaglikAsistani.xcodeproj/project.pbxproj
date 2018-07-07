@@ -13,6 +13,7 @@
 		EA20709D20ED97420074AF15 /* SwiftMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20709C20ED97420074AF15 /* SwiftMessages.swift */; };
 		EA5B81A320EFD6B300AC6F13 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B81A220EFD6B300AC6F13 /* LoginCoordinator.swift */; };
 		EA5B81A520EFD7A600AC6F13 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B81A420EFD7A600AC6F13 /* Server.swift */; };
+		EA5F946320F127C1007E9D1A /* UserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F946220F127C1007E9D1A /* UserCoordinator.swift */; };
 		EA69FAF320ED6C350052930E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FAF220ED6C350052930E /* AppDelegate.swift */; };
 		EA69FAF520ED6C350052930E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FAF420ED6C350052930E /* LoginViewController.swift */; };
 		EA69FAF820ED6C350052930E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA69FAF620ED6C350052930E /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		EA20709C20ED97420074AF15 /* SwiftMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMessages.swift; sourceTree = "<group>"; };
 		EA5B81A220EFD6B300AC6F13 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		EA5B81A420EFD7A600AC6F13 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		EA5F946220F127C1007E9D1A /* UserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinator.swift; sourceTree = "<group>"; };
 		EA69FAEF20ED6C350052930E /* SaglikAsistani.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaglikAsistani.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA69FAF220ED6C350052930E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA69FAF420ED6C350052930E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,14 @@
 			path = "Application Values";
 			sourceTree = "<group>";
 		};
+		EA5F946120F127B3007E9D1A /* User */ = {
+			isa = PBXGroup;
+			children = (
+				EA5F946220F127C1007E9D1A /* UserCoordinator.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		EA69FAE620ED6C350052930E = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +178,7 @@
 		EA69FAF120ED6C350052930E /* SaglikAsistani */ = {
 			isa = PBXGroup;
 			children = (
+				EA5F946120F127B3007E9D1A /* User */,
 				EA5B81A620EFD7B800AC6F13 /* Application Values */,
 				EA20709B20ED97310074AF15 /* Extensions */,
 				EA69FAF220ED6C350052930E /* AppDelegate.swift */,
@@ -372,10 +383,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SaglikAsistani/Pods-SaglikAsistani-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,6 +466,7 @@
 				EA69FAF320ED6C350052930E /* AppDelegate.swift in Sources */,
 				EA20709D20ED97420074AF15 /* SwiftMessages.swift in Sources */,
 				EA5B81A520EFD7A600AC6F13 /* Server.swift in Sources */,
+				EA5F946320F127C1007E9D1A /* UserCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
