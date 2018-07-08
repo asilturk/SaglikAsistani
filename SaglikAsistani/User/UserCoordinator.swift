@@ -15,7 +15,7 @@ class UserCoordinator {
 
 extension UserCoordinator {
     
-    func passwordReset(email: String, completion: @escaping(Bool, String) -> Void) {
+    func resetUserPassword(email: String, completion: @escaping(Bool, String) -> Void) {
         var request = URLRequest.init(url: Server.resetPasswordURL!)
         let postString = "email=\(email)"
         
@@ -41,13 +41,6 @@ extension UserCoordinator {
         task.resume()
     }
     
-    
-    /// Belirli araliklarla kullanicinin uygulama icinden kontrol edilmesi
-    ///
-    /// - Parameters:
-    ///   - userId: kontrol edilecek kullanici identifier'i
-    ///   - loginToken: uygulamada kayitli olan token
-    ///   - completion: islem sonucunun donderilmesi
     func controlUser(userId: String, loginToken: String, notificationToken: String, completion: @escaping(Bool, String) -> Void) {
         var request = URLRequest.init(url: Server.resetPasswordURL!)
         var postString = ""
