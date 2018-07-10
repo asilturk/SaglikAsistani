@@ -8,37 +8,67 @@
 
 import Foundation
 
+// FIXME: - Login sonrasi  password = 658340; geliyor, bunun gelmemesi lazim diye dusunuyorum.
+// Birthday gonderirken format onemli, yanlis gidiyor. buna bir bakmaliyiz.
+
 class LoginCoordinator {
     static let shared = LoginCoordinator()
     private init() { }
 }
 
+
 // MARK: - Login Request
 extension LoginCoordinator {
     
-    func loginRequest(_ email: String, _ password: String) {
+    func loginRequest(_ email: String, _ password: String, completion: @escaping (Bool, String) -> Void) {
         var request = URLRequest.init(url: Server.loginURL!)
-        let postString = "email" + "=" + email + "&" + "password" + "=" + password
+        var postString = ""
+        
+        postString += "email=\(email)"
+        postString += "&sifre=\(password)"
+        postString += "&ios_notify_token=\(ApplicaitonValues.notificationToken)"
+        postString += "&platform=\(ApplicaitonValues.platform)"
+        postString += "&versiyon=\(ApplicaitonValues.versionNumber)"
         
         request.httpMethod = "POST"
         request.httpBody = postString.data(using: .utf8)
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data, error == nil else {                                                 // check for 
-                print("error=\(error)")
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {                                 
+                print("error: \(error?.localizedDescription)")
+                completion(false, error?.localizedDescription ?? "")
                 return
             }
             
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response)")
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                completion(false, "Server error. StatusCode should be 200, but is: \(httpStatus.statusCode)")
             }
             
-            let responseString = String(data: data, encoding: .utf8)
-            print("responseString = \(responseString)")
+            if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String: Any] {
+//                guard let status = json["status"] as? Bool else { return }
+//                guard let message = json["message"] as? String else { return }
+//                guard let responseData = json["status"] as? [String: Any] else { return }
+                
+//                print("data: \(responseData)")
+                
+//                print("json: \(json)")
+//                print("data : \(json["data"])")
+                
+                if let responseData = json["data"] {
+                    (responseData as! [Any])[13]
+                }
+                
+                
+                
+                
+//                print(" JSON : \(json)")
+                completion(true, "")
+            } else {
+                completion(false, "Login işlemi başarısız.")
+            }
             
-        }
-        task.resume()
+            
+        }.resume()
         
     }
 }

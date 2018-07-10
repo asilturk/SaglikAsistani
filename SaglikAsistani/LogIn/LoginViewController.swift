@@ -18,6 +18,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupKeyboardTypeForTextFields()
+        
+        // FIXME: - buralari sil, test icin ekledik
+        self.emailTextField.text = "bf.asilturk@gmail.com"
+        self.passwordTextField.text = "658340"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +34,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     
     @IBAction func LoginButtonTouched(_ sender: UIButton) {
-        self.validateUserValues()
+        self.validateUserValuesAndLogin()
         self.hideKeyboard()
     }
     
@@ -50,8 +54,8 @@ extension LoginViewController {
 
 // MARK: - Auxiliary Methods
 extension LoginViewController {
-    
-    fileprivate func validateUserValues() {
+ 
+    fileprivate func validateUserValuesAndLogin() {
         guard let email = self.emailTextField.text, email != "" else {
             self.showCardViewAlert(title: nil, message: "Email adresinizi giriniz", type: .Warning)
             return
@@ -75,7 +79,15 @@ extension LoginViewController {
             return
         }
         
-        LoginCoordinator.shared.loginRequest(email, password)
+        loginProcess(email, password)
+    }
+    
+    fileprivate func loginProcess(_ email: String, _ password: String) {
+        LoginCoordinator.shared.loginRequest(email, password) { (result, message) in
+            if !result {
+                self.showCardViewAlert(title: nil, message: message, type: .Error)
+            }
+        }
     }
     
     fileprivate func hideNavigationBar() {

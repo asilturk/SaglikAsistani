@@ -11,6 +11,7 @@
 		C893F9B134E9A97BD274E56F /* Pods_SaglikAsistani.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76DC74CAD7F3D6FB5E676F00 /* Pods_SaglikAsistani.framework */; };
 		CC37F7E6FA2978F7C74B051A /* Pods_SaglikAsistaniUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386BFCCE1C59E3FC2F211835 /* Pods_SaglikAsistaniUITests.framework */; };
 		EA20709D20ED97420074AF15 /* SwiftMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20709C20ED97420074AF15 /* SwiftMessages.swift */; };
+		EA4EAA4620F546AA005D77C4 /* UserValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4EAA4520F546AA005D77C4 /* UserValues.swift */; };
 		EA5B81A320EFD6B300AC6F13 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B81A220EFD6B300AC6F13 /* LoginCoordinator.swift */; };
 		EA5B81A520EFD7A600AC6F13 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B81A420EFD7A600AC6F13 /* Server.swift */; };
 		EA5F946320F127C1007E9D1A /* UserCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5F946220F127C1007E9D1A /* UserCoordinator.swift */; };
@@ -55,6 +56,7 @@
 		AF8EB7B32AC2CF3567CB4B79 /* Pods-SaglikAsistaniTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniTests/Pods-SaglikAsistaniTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5B77D648832EFA81AD629B9 /* Pods_SaglikAsistaniTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaglikAsistaniTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA20709C20ED97420074AF15 /* SwiftMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMessages.swift; sourceTree = "<group>"; };
+		EA4EAA4520F546AA005D77C4 /* UserValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserValues.swift; sourceTree = "<group>"; };
 		EA5B81A220EFD6B300AC6F13 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		EA5B81A420EFD7A600AC6F13 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		EA5F946220F127C1007E9D1A /* UserCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinator.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				EA5F946220F127C1007E9D1A /* UserCoordinator.swift */,
+				EA4EAA4520F546AA005D77C4 /* UserValues.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				EA69FB2820ED83450052930E /* SignUpViewController.swift in Sources */,
 				EA69FB2520ED7EA60052930E /* Validator.swift in Sources */,
 				EAC0059720EFE21D00648B48 /* SignUpCoordinator.swift in Sources */,
+				EA4EAA4620F546AA005D77C4 /* UserValues.swift in Sources */,
 				EAC0059B20EFE53200648B48 /* ApplicationValues.swift in Sources */,
 				EA69FAF320ED6C350052930E /* AppDelegate.swift in Sources */,
 				EA20709D20ED97420074AF15 /* SwiftMessages.swift in Sources */,
