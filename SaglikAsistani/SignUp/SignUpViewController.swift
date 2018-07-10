@@ -85,6 +85,15 @@ extension SignUpViewController {
         heighTextField.keyboardType = .numberPad
     }
     
+    fileprivate func showSuccessAlert() {
+        let alert = UIAlertController(title: "Kayıt başarılı", message: "Lütfen eposta adresinizi onaylamak için mailinizi kontrol edin", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Tamam", style: .default, handler: { (_) in
+            self.navigationController?.popViewController(animated: true)
+        })
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     fileprivate func signUpProcess() {
         // dogrulamalar
         if !self.nameFormatValidated() { return }
@@ -108,15 +117,7 @@ extension SignUpViewController {
                                                completion:
             { (success, errorMessage) in
                 if success {
-//                    self.triggerUnwindSegue()
-                    let alert = UIAlertController(title: "Kayıt başarılı", message: "Lütfen eposta adresinizi onaylamak için mailinizi kontrol edin", preferredStyle: .alert)
-                    let action = UIAlertAction(title: "Tamam", style: .default, handler: { (_) in
-//                        self.dismiss(animated: true, completion: nil)
-                        self.navigationController?.popViewController(animated: true)
-                    })
-                    alert.addAction(action)
-                    self.present(alert, animated: true, completion: nil)
-                    
+                    self.showSuccessAlert()
                 } else {
                     self.showCardViewAlert(title: "Bir sorunumuz var", message: errorMessage, type: .Error)
                 }
