@@ -9,10 +9,10 @@
 import Foundation
 
 struct Server {
-    static let loginURL = URL.init(string: "http://takvim.derindata.com/mobil/user_login")
-    static let resetPasswordURL = URL.init(string: "http://takvim.derindata.com/mobil/reset_password")
-    static let registerURL = URL.init(string: "http://takvim.derindata.com/mobil/user_register")
-    static let userControlURL = URL.init(string: "http://takvim.derindata.com/mobil/user_control")
+    static let loginURL = URL.init(string: "http://uygulama.planpiri.com/mobil/user_login")
+    static let resetPasswordURL = URL.init(string: "http://uygulama.planpiri.com/mobil/reset_password")
+    static let registerURL = URL.init(string: "http://uygulama.planpiri.com/mobil/user_register")
+    static let userControlURL = URL.init(string: "http://uygulama.planpiri.com/mobil/user_control")
     
     private init() {}
 }

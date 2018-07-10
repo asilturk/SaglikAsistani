@@ -28,7 +28,7 @@ extension SignUpCoordinator {
         
         var request = URLRequest.init(url: Server.registerURL!)
         var postString = ""
-        
+        postString += "firm_id=\(firmId)" 
         postString += "&isim=\(name)"
         postString += "&email=\(email)"
         postString += "&ceptel=\(phoneNumber)"

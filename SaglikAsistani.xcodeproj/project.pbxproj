@@ -23,6 +23,7 @@
 		EA69FB1320ED6C360052930E /* SaglikAsistaniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FB1220ED6C360052930E /* SaglikAsistaniUITests.swift */; };
 		EA69FB2520ED7EA60052930E /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FB2420ED7EA60052930E /* Validator.swift */; };
 		EA69FB2820ED83450052930E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA69FB2720ED83450052930E /* SignUpViewController.swift */; };
+		EA93AFB820F5344C00CB791D /* SubString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA93AFB720F5344C00CB791D /* SubString.swift */; };
 		EAC0059720EFE21D00648B48 /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC0059620EFE21D00648B48 /* SignUpCoordinator.swift */; };
 		EAC0059B20EFE53200648B48 /* ApplicationValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC0059A20EFE53200648B48 /* ApplicationValues.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		EA69FB1420ED6C360052930E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA69FB2420ED7EA60052930E /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		EA69FB2720ED83450052930E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		EA93AFB720F5344C00CB791D /* SubString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubString.swift; sourceTree = "<group>"; };
 		EAC0059620EFE21D00648B48 /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
 		EAC0059A20EFE53200648B48 /* ApplicationValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationValues.swift; sourceTree = "<group>"; };
 		EE867011A702A4A9E41BFE96 /* Pods-SaglikAsistaniUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniUITests/Pods-SaglikAsistaniUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				EA20709C20ED97420074AF15 /* SwiftMessages.swift */,
+				EA93AFB720F5344C00CB791D /* SubString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 			files = (
 				EA5B81A320EFD6B300AC6F13 /* LoginCoordinator.swift in Sources */,
 				EA69FAF520ED6C350052930E /* LoginViewController.swift in Sources */,
+				EA93AFB820F5344C00CB791D /* SubString.swift in Sources */,
 				EA69FB2820ED83450052930E /* SignUpViewController.swift in Sources */,
 				EA69FB2520ED7EA60052930E /* Validator.swift in Sources */,
 				EAC0059720EFE21D00648B48 /* SignUpCoordinator.swift in Sources */,

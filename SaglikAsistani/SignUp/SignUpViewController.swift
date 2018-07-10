@@ -10,7 +10,6 @@ import UIKit
 import SwiftMessages
 
 // TODO: telefon 05 ile baslamasini saglayacak kontroller yazilmali
-// unwind segue yazilmali, kayit basarili oldugunda login ekrana donduren. 
 
 class SignUpViewController: UIViewController {
     
@@ -109,7 +108,15 @@ extension SignUpViewController {
                                                completion:
             { (success, errorMessage) in
                 if success {
-                    self.triggerUnwindSegue()
+//                    self.triggerUnwindSegue()
+                    let alert = UIAlertController(title: "Kayıt başarılı", message: "Lütfen eposta adresinizi onaylamak için mailinizi kontrol edin", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Tamam", style: .default, handler: { (_) in
+//                        self.dismiss(animated: true, completion: nil)
+                        self.navigationController?.popViewController(animated: true)
+                    })
+                    alert.addAction(action)
+                    self.present(alert, animated: true, completion: nil)
+                    
                 } else {
                     self.showCardViewAlert(title: "Bir sorunumuz var", message: errorMessage, type: .Error)
                 }
@@ -159,6 +166,28 @@ extension SignUpViewController {
             return false
         }
         
+//        var index = 0
+//
+//        for char in phoneNumber {
+//
+//            switch index {
+//            case 0 :
+//                if char != "0" {
+//                    self.showCardViewAlert(title: nil, message: "Telefon numarası 05 ile başlamalıdır", type: .Warning)
+//                    return false
+//                }
+//            case 1:
+//                if char != "1" {
+//                    self.showCardViewAlert(title: nil, message: "Telefon numarası 05 ile başlamalıdır", type: .Warning)
+//                    return false
+//                }
+//            default:
+//                break
+//            }
+//
+//            index += 1
+//        }
+    
         if !Validator.numberValidate(phoneNumber) || phoneNumber.count != 11 {
             self.showCardViewAlert(title: nil, message: "Telefon numarası 11 haneli rakam olmalıdır", type: .Warning)
             return false
