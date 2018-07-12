@@ -35,7 +35,7 @@ extension LoginCoordinator {
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data, error == nil else {                                 
-                print("error: \(error?.localizedDescription)")
+                print("error: \(error?.localizedDescription ?? "")")
                 completion(false, error?.localizedDescription ?? "")
                 return
             }
@@ -45,23 +45,19 @@ extension LoginCoordinator {
             }
             
             if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String: Any] {
-//                guard let status = json["status"] as? Bool else { return }
-//                guard let message = json["message"] as? String else { return }
-//                guard let responseData = json["status"] as? [String: Any] else { return }
-                
-//                print("data: \(responseData)")
-                
-//                print("json: \(json)")
-//                print("data : \(json["data"])")
-                
-                if let responseData = json["data"] {
-                    (responseData as! [Any])[13]
+
+//                let retrievedData = json["data"] as! [String: Any]
+                guard let retrievedData = (json["data"] as! [Any])[0] as? [String: Any] else {
+                    completion(false, "Json veriler parse edilemedi.")
+                    return
                 }
                 
+                guard let loginToken = retrievedData["login_token"] as? String else {
+                    completion(false, "Login token alınamadı")
+                    return
+                }
                 
-                
-                
-//                print(" JSON : \(json)")
+                UserValues.loginToken = loginToken
                 completion(true, "")
             } else {
                 completion(false, "Login işlemi başarısız.")
