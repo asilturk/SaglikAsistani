@@ -15,16 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        print("LOGIN TOKEN = \(UserValues.loginToken)")
-        
-        /// Remember user login and set root.
-        if let loginToken = UserValues.loginToken, loginToken != "" {
-            let destination = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-            self.window?.rootViewController = destination
-        } else {
-            let destination = UIStoryboard.init(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginNavigationController") as! UINavigationController
-            self.window?.rootViewController = destination
-        }
+        self.toggleRootView(inManual: false)
         
         return true
     }
@@ -39,5 +30,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {}
     func applicationWillTerminate(_ application: UIApplication) {}
     
+}
+
+extension AppDelegate {
+    
+    /// User login olduktan sonra gosterilecek ekranin belirlenmesinde kullanilir.
+    ///
+    /// - Parameter inManual: login_token degeri gecerliligini yitirdiginde tekrar login olmasi icin true gonderilr.
+    func toggleRootView(inManual: Bool) {
+        
+        let defaultViewController = UIStoryboard.init(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginNavigationController") as! UINavigationController
+        
+        if inManual {
+            self.window?.rootViewController = defaultViewController
+        } else {
+            
+            /// Remember user login and set root.
+            if let loginToken = UserValues.loginToken, loginToken != "" {
+                let destination = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+                self.window?.rootViewController = destination
+            } else {
+                self.window?.rootViewController = defaultViewController
+            }
+        }
+    }
 }
 
