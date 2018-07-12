@@ -44,12 +44,7 @@ extension LoginViewController {
     
     @IBAction func forgotPasswordButtonTouched(_ sender: UIButton) {
     }
-    
-    
-    /// Kullanici kaydi basarili olduktan sonra login ekranina yonlendirilmesinde kullanilir
-    @IBAction func unwindToLoginViewController(segue:UIStoryboardSegue) {
-        self.showCardViewAlert(title: "Kayıt işlemi başarılı", message: "Şifre eposta adresinize gönderilmiştir.", type: .Info)
-    }
+ 
 }
 
 // MARK: - Auxiliary Methods
@@ -83,11 +78,16 @@ extension LoginViewController {
     }
     
     fileprivate func loginProcess(_ email: String, _ password: String) {
+        
         LoginCoordinator.shared.loginRequest(email, password) { (result, message) in
             if !result {
                 self.showCardViewAlert(title: nil, message: message, type: .Error)
+                return
             }
+            
+            self.showMainView()
         }
+        
     }
     
     fileprivate func hideNavigationBar() {
@@ -96,6 +96,13 @@ extension LoginViewController {
     
     fileprivate func setupKeyboardTypeForTextFields() {
         emailTextField.keyboardType = .emailAddress
+    }
+    
+    
+    /// Login islemi basarili olup login token kayit edildikten sonra kullanici webView'a yonlendirilir
+    fileprivate func showMainView() {
+        let destination = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        self.present(destination, animated: true, completion: nil)
     }
     
 }

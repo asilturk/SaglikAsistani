@@ -44,27 +44,25 @@ extension LoginCoordinator {
                 completion(false, "Server error. StatusCode should be 200, but is: \(httpStatus.statusCode)")
             }
             
-            if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String: Any] {
-
-//                let retrievedData = json["data"] as! [String: Any]
-                guard let retrievedData = (json["data"] as! [Any])[0] as? [String: Any] else {
-                    completion(false, "Json veriler parse edilemedi.")
-                    return
-                }
-                
-                guard let loginToken = retrievedData["login_token"] as? String else {
-                    completion(false, "Login token alınamadı")
-                    return
-                }
-                
-                UserValues.loginToken = loginToken
-                completion(true, "")
-            } else {
+            guard  let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String: Any] else {
                 completion(false, "Login işlemi başarısız.")
+                return
             }
             
+            guard let retrievedData = (json["data"] as! [Any])[0] as? [String: Any] else {
+                completion(false, "Json veriler parse edilemedi.")
+                return
+            }
             
-        }.resume()
+            guard let loginToken = retrievedData["login_token"] as? String else {
+                completion(false, "Login token alınamadı")
+                return
+            }
+            
+            UserValues.loginToken = loginToken
+            completion(true, "")
+            
+            }.resume()
         
     }
 }
