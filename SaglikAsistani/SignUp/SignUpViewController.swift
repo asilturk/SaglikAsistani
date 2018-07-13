@@ -119,7 +119,7 @@ extension SignUpViewController {
                 if success {
                     self.showSuccessAlert()
                 } else {
-                    self.showCardViewAlert(title: "Bir sorunumuz var", message: errorMessage, type: .Error)
+                    self.showCardAlert(title: "Bir sorunumuz var", message: errorMessage, type: .Error)
                 }
         })
     }
@@ -131,14 +131,14 @@ extension SignUpViewController {
     
     fileprivate func nameFormatValidated() -> Bool {
         guard let fullName = nameTextField.text, fullName != "" else {
-            self.showCardViewAlert(title: nil, message: "İsim soyisim giriniz", type: .Warning)
+            self.showCardAlert(title: nil, message: "İsim soyisim giriniz", type: .Warning)
             return false
         }
         
         let result = Validator.nameValidate(text: fullName)
         
         if !result {
-            self.showCardViewAlert(title: "İsim soyisim eksik girildi", message: "Lütfen isim ve soyisim giriniz", type: .Warning)
+            self.showCardAlert(title: "İsim soyisim eksik girildi", message: "Lütfen isim ve soyisim giriniz", type: .Warning)
             return false
         }
         
@@ -147,14 +147,14 @@ extension SignUpViewController {
     
     fileprivate func emailFormatValidated() -> Bool {
         guard let email = emailTextField.text, email != "" else {
-            self.showCardViewAlert(title: nil, message: "Email alanı boş bırakılamaz.", type: .Error)
+            self.showCardAlert(title: nil, message: "Email alanı boş bırakılamaz.", type: .Error)
             return false
         }
         
         let result = Validator.emailValidate(email)
         
         if result.errorMessage != nil {
-            self.showCardViewAlert(title: nil, message: result.errorMessage!, type: .Error)
+            self.showCardAlert(title: nil, message: result.errorMessage!, type: .Error)
             return false
         }
         
@@ -163,7 +163,7 @@ extension SignUpViewController {
     
     fileprivate func phoneNumberValidated() -> Bool {
         guard let phoneNumber = self.phoneTextField.text, phoneNumber != "" else {
-            self.showCardViewAlert(title: nil, message: "Telefon numarası boş bırakılamaz", type: .Warning)
+            self.showCardAlert(title: nil, message: "Telefon numarası boş bırakılamaz", type: .Warning)
             return false
         }
         
@@ -190,7 +190,7 @@ extension SignUpViewController {
 //        }
     
         if !Validator.numberValidate(phoneNumber) || phoneNumber.count != 11 {
-            self.showCardViewAlert(title: nil, message: "Telefon numarası 11 haneli rakam olmalıdır", type: .Warning)
+            self.showCardAlert(title: nil, message: "Telefon numarası 11 haneli rakam olmalıdır", type: .Warning)
             return false
         }
         
@@ -199,17 +199,17 @@ extension SignUpViewController {
     
     fileprivate func weightFormatValidated() -> Bool {
         guard let weight = weightTextField.text, weight != "" else {
-            self.showCardViewAlert(title: nil, message: "Kilonuzu giriniz", type: .Error)
+            self.showCardAlert(title: nil, message: "Kilonuzu giriniz", type: .Error)
             return false
         }
         
         if !(weight.count == 2 || weight.count == 3) {
-            self.showCardViewAlert(title: nil, message: "Kilonuzu kontrol edin", type: .Warning)
+            self.showCardAlert(title: nil, message: "Kilonuzu kontrol edin", type: .Warning)
             return false
         }
         
         if !Validator.numberValidate(weight) {
-            self.showCardViewAlert(title: nil, message: "Kilonuz sayısal değer olmalı", type: .Error)
+            self.showCardAlert(title: nil, message: "Kilonuz sayısal değer olmalı", type: .Error)
             return false
         }
         
@@ -218,17 +218,17 @@ extension SignUpViewController {
     
     fileprivate func heightFormatValidated() -> Bool {
         guard let height = heighTextField.text, height != "" else {
-            self.showCardViewAlert(title: nil, message: "Boyunuzu giriniz", type: .Error)
+            self.showCardAlert(title: nil, message: "Boyunuzu giriniz", type: .Error)
             return false
         }
         
         if !(height.count == 2 || height.count == 3) {
-            self.showCardViewAlert(title: nil, message: "Boyunuzu kontrol edin", type: .Warning)
+            self.showCardAlert(title: nil, message: "Boyunuzu kontrol edin", type: .Warning)
             return false
         }
         
         if !Validator.numberValidate(height) {
-            self.showCardViewAlert(title: nil, message: "Boyunuz sayısal değer olmalı", type: .Error)
+            self.showCardAlert(title: nil, message: "Boyunuz sayısal değer olmalı", type: .Error)
             return false
         }
         
@@ -237,7 +237,7 @@ extension SignUpViewController {
     
     fileprivate func userAgreementValidated() -> Bool {
         if !approved {
-            self.showCardViewAlert(title: nil, message: "Kullanıcı sözleşmesini kabul etmelisiniz", type: .Info)
+            self.showCardAlert(title: nil, message: "Kullanıcı sözleşmesini kabul etmelisiniz", type: .Info)
         }
         
         return approved
@@ -245,7 +245,7 @@ extension SignUpViewController {
     
     fileprivate func genderValidated() -> (selected: Bool, gender: String?) {
         if gender == nil {
-            self.showCardViewAlert(title: nil, message: "Cinsiyet seçiniz", type: .Warning)
+            self.showCardAlert(title: nil, message: "Cinsiyet seçiniz", type: .Warning)
             return (false, nil)
         } else {
             return (true, gender)
@@ -254,7 +254,7 @@ extension SignUpViewController {
     
     fileprivate func userBirthdaySelected() -> Bool {
         if birthdayTextField.text?.isEmpty ?? true {
-            self.showCardViewAlert(title: nil, message: "Doğum tarihi giriniz.", type: .Error)
+            self.showCardAlert(title: nil, message: "Doğum tarihi giriniz.", type: .Error)
             return false
         } else {
             return true

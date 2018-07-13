@@ -18,8 +18,6 @@ struct UserValues {
         set {
             UserDefaults.standard.setValue(newValue, forKey: "loginToken")
             UserDefaults.standard.synchronize()
-            
-            print("# Login token kayit edildi: \(newValue)")
         }
     }
     

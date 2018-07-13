@@ -15,7 +15,7 @@ enum AlertType {
 
 extension UIViewController {
     
-    func showCardViewAlert(title: String?, message: String, type: AlertType) {
+    func showCardAlert(title: String?, message: String, type: AlertType) {
         
         let messageView = MessageView.viewFromNib(layout: MessageView.Layout.cardView)
         switch type {
@@ -33,4 +33,5 @@ extension UIViewController {
         messageView.configureContent(title: title ?? "", body: message, iconText: "")
         SwiftMessages.show(view: messageView)
     }
+    
 }
