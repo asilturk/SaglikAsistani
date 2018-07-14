@@ -52,16 +52,11 @@ extension SignUpCoordinator {
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-//                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-//                print("response = \(response)")
                 let error = NSError.init(domain: "Server hata kodu: \(httpStatus.statusCode). Lüften daha sonra deneyin.", code: 0, userInfo: nil)
                 completion(false, error.localizedDescription)
             }
-        
-//            let responseString = String(data: data, encoding: .utf8)
-//            print("responseString = \(responseString)")
+            
             do {
-//                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
                 guard let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any] else {
                     completion(false, "Server iletişim hatası, uygulama sahibiyle iletişime geçin.")
                     return

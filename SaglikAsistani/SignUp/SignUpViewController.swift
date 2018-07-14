@@ -105,6 +105,7 @@ extension SignUpViewController {
         if !self.heightFormatValidated() { return }
         if !self.userAgreementValidated() { return }
         
+        self.blockAnimation(show: true, message: nil)
         // giris islemleri
         SignUpCoordinator.shared.signUpRequest(firmId: 1,
                                                name: self.nameTextField.text ?? "",
@@ -116,6 +117,7 @@ extension SignUpViewController {
                                                gender: self.gender ?? "",
                                                completion:
             { (success, errorMessage) in
+                self.blockAnimation(show: false, message: nil)
                 if success {
                     self.showSuccessAlert()
                 } else {
@@ -167,28 +169,6 @@ extension SignUpViewController {
             return false
         }
         
-//        var index = 0
-//
-//        for char in phoneNumber {
-//
-//            switch index {
-//            case 0 :
-//                if char != "0" {
-//                    self.showCardViewAlert(title: nil, message: "Telefon numarası 05 ile başlamalıdır", type: .Warning)
-//                    return false
-//                }
-//            case 1:
-//                if char != "1" {
-//                    self.showCardViewAlert(title: nil, message: "Telefon numarası 05 ile başlamalıdır", type: .Warning)
-//                    return false
-//                }
-//            default:
-//                break
-//            }
-//
-//            index += 1
-//        }
-    
         if !Validator.numberValidate(phoneNumber) || phoneNumber.count != 11 {
             self.showCardAlert(title: nil, message: "Telefon numarası 11 haneli rakam olmalıdır", type: .Warning)
             return false

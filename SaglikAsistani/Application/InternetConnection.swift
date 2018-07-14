@@ -9,13 +9,13 @@
 import Foundation
 import SystemConfiguration
 
-class ConnectionCoordinator {
+class InternetConnection {
     private init() {}
 }
 
-extension ConnectionCoordinator {
+extension InternetConnection {
     
-    static func isConnectedToNetwork() -> Bool {
+    static func isConnected() -> Bool {
         
         var zeroAddress = sockaddr_in()
         var flags = SCNetworkReachabilityFlags()

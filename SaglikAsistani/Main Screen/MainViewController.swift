@@ -26,10 +26,6 @@ class MainViewController: UIViewController, WKNavigationDelegate {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
 }
 
 // MARK: - Auxiliary Methods
@@ -37,30 +33,35 @@ extension MainViewController {
     
     fileprivate func initiliziationWebView() {
         
-        // Internetin olmamasi durumunda, kullaniciya alert gosterilir ve alert tekrar kendini cagirir.
-        if !ConnectionCoordinator.isConnectedToNetwork() {
-            let alert = UIAlertController.init(title: "İnternete bağlı değilsiniz", message: "Lütfen bağlantınızı kontrol edin", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Tekrar Dene", style: .default) { (_) in
-                self.initiliziationWebView()
-            }
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-        
-            return
-        }
-        
-        
+        if !isInternetAvailable() { return }
+      
         guard let loginToken = UserValues.loginToken, loginToken != "" else {
             // TODO: - token yuklenmediyse login ekranina yonlendir.
             return
         }
         
         // TODO: - Token kontrolu yap
-        
         let urlString = "http://uygulama.planpiri.com/mobil/go/" + loginToken
         guard let url = URL.init(string: urlString) else { return }
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
+    }
+    
+    fileprivate func isInternetAvailable() -> Bool {
+        
+        // Internetin olmamasi durumunda, kullaniciya alert gosterilir.
+        if !InternetConnection.isConnected() {
+            let alert = UIAlertController.init(title: "İnternete bağlı değilsiniz", message: "Lütfen bağlantınızı kontrol edin", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Tekrar Dene", style: .default) { (_) in
+                // Tekrar dene butonuna tikladiginda webview'i tekrar yuklemeye calisir.
+                self.initiliziationWebView()
+            }
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+            
+            return false
+        }
+        return true
     }
     
 }

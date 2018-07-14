@@ -79,7 +79,11 @@ extension LoginViewController {
     
     fileprivate func loginProcess(_ email: String, _ password: String) {
         
+        self.blockAnimation(show: true, message: nil)
+        
         LoginCoordinator.shared.loginRequest(email, password) { (result, message) in
+            self.blockAnimation(show: false, message: nil)
+            
             if !result {
                 self.showCardAlert(title: nil, message: message, type: .Error)
                 return

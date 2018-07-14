@@ -49,7 +49,13 @@ extension LoginCoordinator {
                 return
             }
             
-            guard let retrievedData = (json["data"] as! [Any])[0] as? [String: Any] else {
+            
+            guard let status = json["status"] as? Int  else { return }
+            guard let unsuccessfulLoginMessage = json["message"] as? String  else { return }
+            
+            if status != 1 { completion(false, unsuccessfulLoginMessage) }
+            
+            guard let retrievedData = (json["data"] as? [Any])?[0] as? [String: Any] else {
                 completion(false, "Json veriler parse edilemedi.")
                 return
             }

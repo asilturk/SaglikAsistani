@@ -31,8 +31,6 @@ extension UserCoordinator {
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 completion(false, "Bir sorunumuz var, hata kodu:\(httpStatus.statusCode).")
-//                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-//                print("response = \(response)")
             }
             
             // TODO: Veriler parse edilecek, kullanici bilgilendirilecek
