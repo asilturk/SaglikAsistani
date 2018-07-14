@@ -18,17 +18,23 @@ class MainViewController: UIViewController, WKNavigationDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        if self.loginTokenRegenerated() {
+            self.startWebView()
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         DispatchQueue.main.async {
             self.webView = WKWebView()
             self.webView.navigationDelegate = self
             self.view = self.webView
             self.startWebView()
         }
+        
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
+
 }
 
 // MARK: - Auxiliary Methods
@@ -37,14 +43,8 @@ extension MainViewController {
     fileprivate func startWebView() {
         
         if !isInternetAvailable() { return }
-      
-        guard let loginToken = UserValues.loginToken, loginToken != "" else {
-            // TODO: - token yuklenmediyse login ekranina yonlendir.
-            return
-        }
         
-        // TODO: - Token kontrolu yap
-        let urlString = "http://uygulama.planpiri.com/mobil/go/" + loginToken
+        let urlString = "http://uygulama.planpiri.com/mobil/go/" + UserValues.loginToken!
         guard let url = URL.init(string: urlString) else { return }
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
@@ -67,8 +67,21 @@ extension MainViewController {
         return true
     }
     
+    
+    /// Login token araciligiyla session'in kontrol edilmesi, alinan token mevcuttan farkliysa token yenilenip webView yeniden olusturulur.
+    ///
+    /// - Returns: token yenilendiginde true deger donerek webView'in yenilenmesinde kullanilir.
     fileprivate func loginTokenRegenerated() -> Bool {
+        
+        Server.controlUserSession(userId: UserValues.userId!,
+                                  loginToken: UserValues.loginToken!)
+        { (result, message) in
+            
+            if !result { print("ERROR in loginTokenRegenerated() : \(message)"); return }
+            
+            
 
+        }
         return false
     }
     

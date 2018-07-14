@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupKeyboardTypeForTextFields()
+        self.setupKeyboardTypeForTextFields()
         
         // FIXME: - buralari sil, test icin ekledik
         self.emailTextField.text = "bf.asilturk@gmail.com"
@@ -101,7 +101,6 @@ extension LoginViewController {
     fileprivate func setupKeyboardTypeForTextFields() {
         emailTextField.keyboardType = .emailAddress
     }
-    
     
     /// Login islemi basarili olup login token kayit edildikten sonra kullanici webView'a yonlendirilir
     fileprivate func showMainView() {

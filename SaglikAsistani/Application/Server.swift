@@ -12,7 +12,7 @@ struct Server {
     static let loginURL = URL.init(string: "http://uygulama.planpiri.com/mobil/user_login")
     static let resetPasswordURL = URL.init(string: "http://uygulama.planpiri.com/mobil/reset_password")
     static let registerURL = URL.init(string: "http://uygulama.planpiri.com/mobil/user_register")
-    static let userControlURL = URL.init(string: "http://uygulama.planpiri.com/mobil/user_control")
+    static let sessionControlURL = URL.init(string: "http://uygulama.planpiri.com/mobil/user_control")
     
     private init() {}
 }
@@ -44,8 +44,8 @@ extension Server {
         task.resume()
     }
     
-    static func controlUserSession(userId: String, loginToken: String, notificationToken: String, completion: @escaping(Bool, String) -> Void) {
-        var request = URLRequest.init(url: Server.resetPasswordURL!)
+    static func controlUserSession(userId: String, loginToken: String, completion: @escaping(Bool, String) -> Void) {
+        var request = URLRequest.init(url: Server.sessionControlURL!)
         var postString = ""
         
         postString += "user_id=\(userId)"
@@ -56,6 +56,7 @@ extension Server {
         
         request.httpMethod = "POST"
         request.httpBody = postString.data(using: .utf8)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data, error == nil else {
@@ -65,9 +66,19 @@ extension Server {
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 completion(false, "Bir sorunumuz var, hata kodu:\(httpStatus.statusCode).")
+                return
             }
             
-            // TODO: Veriler parse edilecek, kullanici bilgilendirilecek
+            
+            guard let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as! NSDictionary else {
+                completion(false, "")
+                return
+            }
+            
+            let status = json["status"] as! Bool
+            let message = json["message"] as! String
+        
+            completion(status, message)
             
         }
         task.resume()
