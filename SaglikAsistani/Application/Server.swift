@@ -20,7 +20,7 @@ struct Server {
 // MARK: - Auxiliary Methods
 extension Server {
     
-    static func resetUserPassword(email: String, completion: @escaping(Bool, String) -> Void) {
+    static func resetUserPassword(email: String, completion: @escaping(String) -> Void) {
         var request = URLRequest.init(url: Server.resetPasswordURL!)
         let postString = "email=\(email)"
         
@@ -29,16 +29,18 @@ extension Server {
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data, error == nil else {
-                completion(false, error?.localizedDescription ?? "Bir sorun oluştu, daha sonra tekrar deneyin")
-                //                print("error=\(error)")
+                completion(error?.localizedDescription ?? "Bir sorun oluştu, daha sonra tekrar deneyin")
                 return
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                completion(false, "Bir sorunumuz var, hata kodu:\(httpStatus.statusCode).")
+                completion("Bir sorunumuz var, hata kodu:\(httpStatus.statusCode).")
             }
             
-            // TODO: Veriler parse edilecek, kullanici bilgilendirilecek
+            guard let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: Any] else { return }
+            guard let message = json["message"] as? String else { return }
+            
+            completion(message)
             
         }
         task.resume()

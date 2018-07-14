@@ -43,6 +43,7 @@ extension LoginViewController {
     }
     
     @IBAction func forgotPasswordButtonTouched(_ sender: UIButton) {
+        self.resetPasswordProcess()
     }
  
 }
@@ -92,6 +93,28 @@ extension LoginViewController {
             self.showMainView()
         }
         
+    }
+    
+    fileprivate func resetPasswordProcess() {
+        
+        guard let email = self.emailTextField.text, email != "" else {
+            self.showCardAlert(title: nil, message: "Email adresinizi giriniz", type: .Warning)
+            return
+        }
+        
+        let emailResult = Validator.emailValidate(email)
+        
+        if !emailResult.result {
+            self.showCardAlert(title: nil, message: emailResult.errorMessage!, type: .Error)
+            return
+        }
+        
+        self.blockAnimation(show: true, message: nil)
+        
+        Server.resetUserPassword(email: email) { message in
+            self.showCardAlert(title: nil, message: message, type: .Info)
+            self.blockAnimation(show: false, message: nil)
+        }
     }
     
     fileprivate func hideNavigationBar() {
