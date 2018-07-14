@@ -66,9 +66,7 @@ extension SignUpViewController {
     @IBAction func genderTouched(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 { self.gender = "Erkek" } else { self.gender = "Kadın"}
     }
-    
-    /// Kayit islemi basarili olmasi durumunda kullanicinin login ekranina yonlendirilmesi icin unwind segue tetiklemede kullanilir.
-    @IBAction func triggerUnwindSegue() { }
+
 }
 
 // MARK: - Auxiliary Methods
@@ -106,6 +104,7 @@ extension SignUpViewController {
         if !self.userAgreementValidated() { return }
         
         self.blockAnimation(show: true, message: nil)
+        
         // giris islemleri
         SignUpCoordinator.shared.signUpRequest(firmId: 1,
                                                name: self.nameTextField.text ?? "",
@@ -117,12 +116,9 @@ extension SignUpViewController {
                                                gender: self.gender ?? "",
                                                completion:
             { (success, errorMessage) in
+                success ? self.showSuccessAlert() : self.showCardAlert(title: "Bir sorunumuz var", message: errorMessage, type: .Error)
+                
                 self.blockAnimation(show: false, message: nil)
-                if success {
-                    self.showSuccessAlert()
-                } else {
-                    self.showCardAlert(title: "Bir sorunumuz var", message: errorMessage, type: .Error)
-                }
         })
     }
     

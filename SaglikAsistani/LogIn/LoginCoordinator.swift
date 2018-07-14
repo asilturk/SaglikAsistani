@@ -65,7 +65,14 @@ extension LoginCoordinator {
                 return
             }
             
+            guard let userId = retrievedData["ID"] as? String else {
+                completion(false, "User id alınamadı")
+                return
+            }
+            
             UserValues.loginToken = loginToken
+            UserValues.userId = userId
+            
             completion(true, "")
             
             }.resume()

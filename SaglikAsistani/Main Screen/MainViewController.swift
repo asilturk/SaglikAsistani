@@ -22,16 +22,19 @@ class MainViewController: UIViewController, WKNavigationDelegate {
             self.webView = WKWebView()
             self.webView.navigationDelegate = self
             self.view = self.webView
-            self.initiliziationWebView()
+            self.startWebView()
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 }
 
 // MARK: - Auxiliary Methods
 extension MainViewController {
     
-    fileprivate func initiliziationWebView() {
+    fileprivate func startWebView() {
         
         if !isInternetAvailable() { return }
       
@@ -54,7 +57,7 @@ extension MainViewController {
             let alert = UIAlertController.init(title: "İnternete bağlı değilsiniz", message: "Lütfen bağlantınızı kontrol edin", preferredStyle: .alert)
             let action = UIAlertAction(title: "Tekrar Dene", style: .default) { (_) in
                 // Tekrar dene butonuna tikladiginda webview'i tekrar yuklemeye calisir.
-                self.initiliziationWebView()
+                self.startWebView()
             }
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
@@ -64,22 +67,9 @@ extension MainViewController {
         return true
     }
     
-}
+    fileprivate func loginTokenRegenerated() -> Bool {
 
-//let frame = CGRect.init(x: self.view.center.x - 40, y: self.view.center.y - 40, width: 80, height: 80)
-//self.retryButton = UIButton.init(frame: frame)
-//
-//private var retryButton: UIButton!
-//
-//fileprivate func createRetryButton() {
-//    print("createRetryButton")
-//    retryButton.imageView?.image = #imageLiteral(resourceName: "reloadIcon")
-//    retryButton.addTarget(nil, action: #selector(retryButtonTouched), for: .touchUpInside)
-//    self.webView.addSubview(retryButton)
-//}
-//
-//
-//@objc func retryButtonTouched() {
-//    self.initiliziationWebView()
-//    print("retryButtonTouched")
-//}
+        return false
+    }
+    
+}

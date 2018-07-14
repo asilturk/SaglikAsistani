@@ -10,6 +10,8 @@ import Foundation
 
 struct UserValues {
     
+    private init() {}
+    
     /// Kullanici login olduktan sonra, session kontrol islemlerinde kullanilmak uzere login token'in hafizada tutulmasi.
     static var loginToken: String? {
         get {
@@ -21,7 +23,18 @@ struct UserValues {
         }
     }
     
-    private init() {}
+    
+    /// Login olan kullanici id'si
+    static var userId: String? {
+        get {
+            return UserDefaults.standard.value(forKey: "userId") as? String
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "userId")
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
 }
 
 

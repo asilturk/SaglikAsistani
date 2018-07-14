@@ -16,3 +16,60 @@ struct Server {
     
     private init() {}
 }
+
+// MARK: - Auxiliary Methods
+extension Server {
+    
+    static func resetUserPassword(email: String, completion: @escaping(Bool, String) -> Void) {
+        var request = URLRequest.init(url: Server.resetPasswordURL!)
+        let postString = "email=\(email)"
+        
+        request.httpMethod = "POST"
+        request.httpBody = postString.data(using: .utf8)
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                completion(false, error?.localizedDescription ?? "Bir sorun oluştu, daha sonra tekrar deneyin")
+                //                print("error=\(error)")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                completion(false, "Bir sorunumuz var, hata kodu:\(httpStatus.statusCode).")
+            }
+            
+            // TODO: Veriler parse edilecek, kullanici bilgilendirilecek
+            
+        }
+        task.resume()
+    }
+    
+    static func controlUserSession(userId: String, loginToken: String, notificationToken: String, completion: @escaping(Bool, String) -> Void) {
+        var request = URLRequest.init(url: Server.resetPasswordURL!)
+        var postString = ""
+        
+        postString += "user_id=\(userId)"
+        postString += "&login_token=\(loginToken)"
+        postString += "&ios_notify_token=\(ApplicaitonValues.notificationToken)"
+        postString += "&platform=\(ApplicaitonValues.platform)"
+        postString += "&versiyon=\(ApplicaitonValues.versionNumber)"
+        
+        request.httpMethod = "POST"
+        request.httpBody = postString.data(using: .utf8)
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                completion(false, error?.localizedDescription ?? "Bir sorun oluştu, daha sonra tekrar deneyin")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                completion(false, "Bir sorunumuz var, hata kodu:\(httpStatus.statusCode).")
+            }
+            
+            // TODO: Veriler parse edilecek, kullanici bilgilendirilecek
+            
+        }
+        task.resume()
+    }
+}
