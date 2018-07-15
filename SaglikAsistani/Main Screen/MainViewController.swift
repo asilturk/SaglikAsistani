@@ -22,15 +22,18 @@ class MainViewController: UIViewController, WKNavigationDelegate {
         return activityInd
     }()
     
-    private var webView: WKWebView!
+    private lazy var webView: WKWebView = {
+        let webView = WKWebView()
+        webView.scrollView.isScrollEnabled = false
+        webView.allowsBackForwardNavigationGestures = true
+        return webView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         DispatchQueue.main.async {
-            self.webView = WKWebView()
             self.webView.navigationDelegate = self
-            self.webView.scrollView.isScrollEnabled = false
             self.view = self.webView
             self.activityIndicator.startAnimating()
             self.startWebView()
@@ -94,7 +97,6 @@ extension MainViewController {
         let urlString = "http://uygulama.planpiri.com/mobil/go/" + UserValues.loginToken!
         guard let url = URL.init(string: urlString) else { return }
         webView.load(URLRequest(url: url))
-        webView.allowsBackForwardNavigationGestures = true
     }
     
     fileprivate func isInternetAvailable() -> Bool {
