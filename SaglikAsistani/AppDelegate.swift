@@ -12,10 +12,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        self.toggleRootView(inManual: false)
+        self.setRootView()
         
         return true
     }
@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {}
     func applicationDidEnterBackground(_ application: UIApplication) {}
     func applicationWillEnterForeground(_ application: UIApplication) {}
@@ -32,47 +32,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
-
 // MARK: - Auxiliary Methods
 extension AppDelegate {
-    
-    /// User login olduktan sonra gosterilecek ekranin belirlenmesinde kullanilir.
-    ///
-    /// - Parameter inManual: login_token degeri gecerliligini yitirdiginde tekrar login olmasi icin true gonderilr.
-    fileprivate func toggleRootView(inManual: Bool) {
+
+    /// User token var ise root view main, yoksa login ekranidir.
+    fileprivate func setRootView() {
         
-        let defaultViewController = UIStoryboard.init(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginNavigationController") as! UINavigationController
-        
-        if inManual {
-            self.window?.rootViewController = defaultViewController
-        } else {
-            
-            /// Remember user login and set root.
-            if let loginToken = UserValues.loginToken, loginToken != "" {
-                let destination = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-                self.window?.rootViewController = destination
-            } else {
-                self.window?.rootViewController = defaultViewController
-            }
+        guard let _ = UserValues.loginToken else {
+            let destination = UIStoryboard.init(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginNavigationController") as! UINavigationController
+            self.window?.rootViewController = destination
+            return
         }
-    }
-    
-    /// Login token araciligiyla session'in kontrol edilmesi, alinan token mevcuttan farkliysa login ekranina yonelndirilir
-    ///
-    /// - Returns: token yenilendiginde true deger donerek webView'in yenilenmesinde kullanilir.
-    fileprivate func loginTokenRegenerated() -> Bool {
         
-        Server.controlUserSession(userId: UserValues.userId!,
-                                  loginToken: UserValues.loginToken!)
-        { (result, message) in
-            if !result {
-                // TODO: - Login ekranina yonlendirecez
-                print("ERROR in loginTokenRegenerated() : \(message)");
-                return
-            }
-            
-        }
-        return false
+        let mainVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        self.window?.rootViewController = mainVC
     }
 }
-

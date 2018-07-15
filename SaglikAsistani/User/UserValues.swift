@@ -23,7 +23,6 @@ struct UserValues {
         }
     }
     
-    
     /// Login olan kullanici id'si
     static var userId: String? {
         get {
