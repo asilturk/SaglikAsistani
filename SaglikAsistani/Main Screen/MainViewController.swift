@@ -33,13 +33,10 @@ class MainViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         
         DispatchQueue.main.async {
-            
-            self.webView.navigationDelegate = self
-            
             let frame = CGRect(x: 0, y: 10, width: self.view.frame.width, height: self.view.frame.height)
             self.webView.frame = frame
-            
-//            self.setDefaultViewFrame()
+            self.webView.navigationDelegate = self
+
             self.view.addSubview(self.webView)
             
             self.activityIndicator.startAnimating()
@@ -133,11 +130,6 @@ extension MainViewController {
         }
         
         return true
-    }
-    
-    fileprivate func setDefaultViewFrame() {
-        let frame = CGRect(x: 0, y: 10, width: self.view.frame.width, height: self.view.frame.height)
-        self.view.frame = frame
     }
     
     @objc fileprivate func logoutButtonTouched() {
