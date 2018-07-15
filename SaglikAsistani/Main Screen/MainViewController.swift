@@ -23,7 +23,7 @@ class MainViewController: UIViewController, WKNavigationDelegate {
     }()
     
     private lazy var webView: WKWebView = {
-        let webView = WKWebView()
+        var webView = WKWebView()
         webView.scrollView.isScrollEnabled = false
         webView.allowsBackForwardNavigationGestures = true
         return webView
@@ -33,8 +33,15 @@ class MainViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         
         DispatchQueue.main.async {
+            
             self.webView.navigationDelegate = self
-            self.view = self.webView
+            
+            let frame = CGRect(x: 0, y: 10, width: self.view.frame.width, height: self.view.frame.height)
+            self.webView.frame = frame
+            
+//            self.setDefaultViewFrame()
+            self.view.addSubview(self.webView)
+            
             self.activityIndicator.startAnimating()
             self.startWebView()
         }
@@ -69,7 +76,7 @@ extension MainViewController {
                                                toItem: view,
                                                attribute: NSLayoutAttribute.top,
                                                multiplier: 1,
-                                               constant: -7)
+                                               constant: -17)
         
         let widthConstraint = NSLayoutConstraint(item: logoutButton,
                                                  attribute: NSLayoutAttribute.width,
@@ -78,7 +85,7 @@ extension MainViewController {
                                                  attribute: NSLayoutAttribute.notAnAttribute,
                                                  multiplier: 1,
                                                  constant: 100)
-        
+
         let heightConstraint = NSLayoutConstraint(item: logoutButton,
                                                   attribute: NSLayoutAttribute.height,
                                                   relatedBy: NSLayoutRelation.equal,
@@ -99,6 +106,17 @@ extension MainViewController {
         webView.load(URLRequest(url: url))
     }
     
+    fileprivate func setConstraintToWebViewInFirstLoaded() {
+        let topConstraint = NSLayoutConstraint(item: self.webView,
+                                               attribute: NSLayoutAttribute.top,
+                                               relatedBy: NSLayoutRelation.equal,
+                                               toItem: self.view.safeAreaLayoutGuide.topAnchor,
+                                               attribute: NSLayoutAttribute.top,
+                                               multiplier: 1,
+                                               constant: -7)
+        self.view.addConstraint(topConstraint)
+    }
+    
     fileprivate func isInternetAvailable() -> Bool {
         
         // Internetin olmamasi durumunda, kullaniciya alert gosterilir.
@@ -115,6 +133,11 @@ extension MainViewController {
         }
         
         return true
+    }
+    
+    fileprivate func setDefaultViewFrame() {
+        let frame = CGRect(x: 0, y: 10, width: self.view.frame.width, height: self.view.frame.height)
+        self.view.frame = frame
     }
     
     @objc fileprivate func logoutButtonTouched() {

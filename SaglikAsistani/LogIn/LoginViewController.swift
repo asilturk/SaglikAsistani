@@ -75,7 +75,7 @@ extension LoginViewController {
             return
         }
         
-        loginProcess(email, password)
+        self.loginProcess(email, password)
     }
     
     fileprivate func loginProcess(_ email: String, _ password: String) {
@@ -127,6 +127,7 @@ extension LoginViewController {
     
     /// Login islemi basarili olup login token kayit edildikten sonra kullanici webView'a yonlendirilir
     fileprivate func showMainView() {
+        UserValues.webViewLoadedAfterLogin = true
         let destination = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         self.present(destination, animated: true, completion: nil)
     }

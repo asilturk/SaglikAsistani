@@ -34,6 +34,10 @@ struct UserValues {
         }
     }
     
+    
+    /// Webview'in ilk yuklendiginde ana menude olusan sorunu gidermede kullaniriz.
+    static var webViewLoadedAfterLogin = false
+    
 }
 
 
