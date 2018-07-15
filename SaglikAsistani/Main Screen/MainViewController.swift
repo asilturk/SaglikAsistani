@@ -15,14 +15,6 @@ class MainViewController: UIViewController, WKNavigationDelegate {
 
     private var webView: WKWebView!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        if self.loginTokenRegenerated() {
-            self.startWebView()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,9 +24,7 @@ class MainViewController: UIViewController, WKNavigationDelegate {
             self.view = self.webView
             self.startWebView()
         }
-        
     }
-
 }
 
 // MARK: - Auxiliary Methods
@@ -66,23 +56,4 @@ extension MainViewController {
         }
         return true
     }
-    
-    
-    /// Login token araciligiyla session'in kontrol edilmesi, alinan token mevcuttan farkliysa token yenilenip webView yeniden olusturulur.
-    ///
-    /// - Returns: token yenilendiginde true deger donerek webView'in yenilenmesinde kullanilir.
-    fileprivate func loginTokenRegenerated() -> Bool {
-        
-        Server.controlUserSession(userId: UserValues.userId!,
-                                  loginToken: UserValues.loginToken!)
-        { (result, message) in
-            
-            if !result { print("ERROR in loginTokenRegenerated() : \(message)"); return }
-            
-            
-
-        }
-        return false
-    }
-    
 }

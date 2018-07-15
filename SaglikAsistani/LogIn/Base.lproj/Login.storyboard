@@ -178,20 +178,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Doğum Tarihi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jsP-Qe-cln">
-                                <rect key="frame" x="16" y="340" width="160" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="nNp-BX-1vs" id="eS0-fK-cz2"/>
-                                    <outlet property="pasteDelegate" destination="nNp-BX-1vs" id="G7O-xe-11e"/>
-                                    <outlet property="textDragDelegate" destination="nNp-BX-1vs" id="hdy-kc-5RQ"/>
-                                    <outlet property="textDropDelegate" destination="nNp-BX-1vs" id="M7f-12-osE"/>
-                                </connections>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kilo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxH-ne-Yub">
                                 <rect key="frame" x="16" y="384" width="34" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -257,6 +243,27 @@
                                     <action selector="signUpButtonTouched" destination="nNp-BX-1vs" eventType="touchUpInside" id="ZBJ-Id-0OK"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Doğum Tarihi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBW-OH-eIq">
+                                <rect key="frame" x="193" y="277" width="91" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="23.04.1920" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jsP-Qe-cln">
+                                <rect key="frame" x="193" y="299" width="160" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="nNp-BX-1vs" id="eS0-fK-cz2"/>
+                                    <outlet property="pasteDelegate" destination="nNp-BX-1vs" id="G7O-xe-11e"/>
+                                    <outlet property="textDragDelegate" destination="nNp-BX-1vs" id="hdy-kc-5RQ"/>
+                                    <outlet property="textDropDelegate" destination="nNp-BX-1vs" id="M7f-12-osE"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="BeA-ak-79M"/>
@@ -273,13 +280,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwH-dD-QJ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="9W6-Di-o7X">
-                    <connections>
-                        <action selector="triggerUnwindSegue" destination="nNp-BX-1vs" id="Wtv-xm-xUj"/>
-                        <segue destination="BbE-85-FXt" kind="unwind" unwindAction="unwindToLoginViewControllerWithSegue:" id="1L1-tV-7rP"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <exit id="BbE-85-FXt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2462" y="39"/>
         </scene>

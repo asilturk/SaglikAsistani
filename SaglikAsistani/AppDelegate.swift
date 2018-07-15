@@ -32,12 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
+
+// MARK: - Auxiliary Methods
 extension AppDelegate {
     
     /// User login olduktan sonra gosterilecek ekranin belirlenmesinde kullanilir.
     ///
     /// - Parameter inManual: login_token degeri gecerliligini yitirdiginde tekrar login olmasi icin true gonderilr.
-    func toggleRootView(inManual: Bool) {
+    fileprivate func toggleRootView(inManual: Bool) {
         
         let defaultViewController = UIStoryboard.init(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginNavigationController") as! UINavigationController
         
@@ -53,6 +55,24 @@ extension AppDelegate {
                 self.window?.rootViewController = defaultViewController
             }
         }
+    }
+    
+    /// Login token araciligiyla session'in kontrol edilmesi, alinan token mevcuttan farkliysa login ekranina yonelndirilir
+    ///
+    /// - Returns: token yenilendiginde true deger donerek webView'in yenilenmesinde kullanilir.
+    fileprivate func loginTokenRegenerated() -> Bool {
+        
+        Server.controlUserSession(userId: UserValues.userId!,
+                                  loginToken: UserValues.loginToken!)
+        { (result, message) in
+            if !result {
+                // TODO: - Login ekranina yonlendirecez
+                print("ERROR in loginTokenRegenerated() : \(message)");
+                return
+            }
+            
+        }
+        return false
     }
 }
 
