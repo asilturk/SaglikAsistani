@@ -12,7 +12,7 @@ struct Server {
     static let loginURL = URL.init(string: "http://uygulama.planpiri.com/mobil/user_login")
     static let resetPasswordURL = URL.init(string: "http://uygulama.planpiri.com/mobil/reset_password")
     static let registerURL = URL.init(string: "http://uygulama.planpiri.com/mobil/user_register")
-    static let sessionControlURL = URL.init(string: "http://uygulama.planpiri.com/mobil/user_control")
+    static let userControlURL = URL.init(string: "http://uygulama.planpiri.com/mobil/user_control")
     
     private init() {}
 }
@@ -46,43 +46,88 @@ extension Server {
         task.resume()
     }
     
-    static func controlUserSession(userId: String, loginToken: String, completion: @escaping(Bool, String) -> Void) {
-        var request = URLRequest.init(url: Server.sessionControlURL!)
-        var postString = ""
+    static func controlUserSession(completion: @escaping(Bool, String) -> Void) {
         
-        postString += "user_id=\(userId)"
-        postString += "&login_token=\(loginToken)"
-        postString += "&ios_notify_token=\(ApplicaitonValues.notificationToken)"
-        postString += "&platform=\(ApplicaitonValues.platform)"
-        postString += "&versiyon=\(ApplicaitonValues.versionNumber)"
+        var request = URLRequest.init(url: URL.init(string: "http://uygulama.planpiri.com/mobil/user_control")!)
+        var post = ""
         
+        post += "user_id=39"
+        post += "&login_token=209519642353769110788624548370"
+        post += "&ios_notify_token=xxx"
+        post += "&platform=ios"
+        post += "&versiyon=1.0"
+        
+        
+//        post += "user_id=" + UserValues.userId!
+//        post += "&login_token=" + UserValues.loginToken!
+//        post += "&ios_notify_token=" + ApplicaitonValues.notificationToken
+//        post += "&platform=" + ApplicaitonValues.platform
+//        post += "&versiyon=" + ApplicaitonValues.versionNumber
+        
+        print("### \(post)")
+        
+        request.httpBody = post.data(using: .utf8)
         request.httpMethod = "POST"
-        request.httpBody = postString.data(using: .utf8)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data, error == nil else {
-                completion(false, error?.localizedDescription ?? "Bir sorun oluştu, daha sonra tekrar deneyin")
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            guard error == nil else {
+                completion(false, error?.localizedDescription ?? ":8")
                 return
             }
             
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                completion(false, "Bir sorunumuz var, hata kodu:\(httpStatus.statusCode).")
-                return
-            }
-            
-            
-            guard let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as! NSDictionary else {
-                completion(false, "")
+            guard let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: Any] else {
+                completion(false, ":7")
                 return
             }
             
             let status = json["status"] as! Bool
             let message = json["message"] as! String
-        
+            
             completion(status, message)
             
-        }
-        task.resume()
+            
+            }.resume()
+        
+        
+        //        var request = URLRequest.init(url: Server.userControlURL!)
+        //        var postString = ""
+        //
+        //        postString += "user_id=\(userId)"
+        //        postString += "&login_token=\(loginToken)"
+        //        postString += "&ios_notify_token=\(ApplicaitonValues.notificationToken)"
+        //        postString += "&platform=\(ApplicaitonValues.platform)"
+        //        postString += "&versiyon=\(ApplicaitonValues.versionNumber)"
+        //
+        //        request.httpMethod = "POST"
+        //        request.httpBody = postString.data(using: .utf8)
+        //        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        //
+        //        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        //            guard let data = data, error == nil else {
+        //                completion(false, error?.localizedDescription ?? "Bir sorun oluştu, daha sonra tekrar deneyin")
+        //                return
+        //            }
+        //
+        //            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+        //                completion(false, "Bir sorunumuz var, hata kodu:\(httpStatus.statusCode).")
+        //                return
+        //            }
+        //
+        //
+        ////            guard let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as! NSDictionary else {
+        ////                completion(false, "")
+        ////                return
+        ////            }
+        //
+        //            guard let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) else { return }
+        //
+        ////            let status = json["status"] as! Bool
+        ////            let message = json["message"] as! String
+        //
+        ////            completion(status, message)
+        //
+        //        }
+        //        task.resume()
     }
 }

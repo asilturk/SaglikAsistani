@@ -43,11 +43,33 @@ class MainViewController: UIViewController, WKNavigationDelegate {
             self.startWebView()
         }
     }
+    
+    
+    /// Kullanicinin her uygulamayi acmasinda server ile iletisime gecerek login token'i kontrol eder.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if !InternetConnection.isConnected() { return }
+        
+        Server.controlUserSession() { (result, message) in
+            
+            if !result {
+                let alert = UIAlertController(title: "Tekrar Login Olmalı", message: message, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Tamam", style: .default, handler: { (_) in
+                    self.resetUserValuesAndShowLoginView()
+                })
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
 }
 
 // MARK: - Auxiliary Methods
 extension MainViewController {
     
+    
+    /// WebView uzerinde programmatic olarak signOut butonu olusturur.
     fileprivate func initiliazeSignOutButton() {
         let frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
         let logoutButton = UIButton.init(frame: frame)
@@ -94,29 +116,20 @@ extension MainViewController {
         view.addConstraints([trailingConstraint, topConstraint, widthConstraint, heightConstraint])
     }
     
+    
+    /// Webview'in url ve login token'a gore baslatilmasi.
     fileprivate func startWebView() {
         
-        if !isInternetAvailable() { return }
+        if !internetAvailableForLoadWebview() { return }
         
         let urlString = "http://uygulama.planpiri.com/mobil/go/" + UserValues.loginToken!
         guard let url = URL.init(string: urlString) else { return }
         webView.load(URLRequest(url: url))
     }
     
-    fileprivate func setConstraintToWebViewInFirstLoaded() {
-        let topConstraint = NSLayoutConstraint(item: self.webView,
-                                               attribute: NSLayoutAttribute.top,
-                                               relatedBy: NSLayoutRelation.equal,
-                                               toItem: self.view.safeAreaLayoutGuide.topAnchor,
-                                               attribute: NSLayoutAttribute.top,
-                                               multiplier: 1,
-                                               constant: -7)
-        self.view.addConstraint(topConstraint)
-    }
+    // Internetin olmamasi durumunda, kullaniciya tekrar baglanmasi icin alert gosterir.
+    fileprivate func internetAvailableForLoadWebview() -> Bool {
     
-    fileprivate func isInternetAvailable() -> Bool {
-        
-        // Internetin olmamasi durumunda, kullaniciya alert gosterilir.
         if !InternetConnection.isConnected() {
             let alert = UIAlertController.init(title: "İnternete bağlı değilsiniz", message: "Lütfen bağlantınızı kontrol edin", preferredStyle: .alert)
             let action = UIAlertAction(title: "Tekrar Dene", style: .default) { (_) in
@@ -132,22 +145,28 @@ extension MainViewController {
         return true
     }
     
+    
+    /// Logout butonuna tiklanmasi sonrasi tetiklenerek kullaniciya alert gosterilir
     @objc fileprivate func logoutButtonTouched() {
         let alert = UIAlertController(title: "Oturumu kapatmak istiyor musunuz?", message: nil, preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Vazgeç", style: .cancel, handler: nil)
         let ok = UIAlertAction(title: "Oturumu Kapat", style: .default) { (_) in
-            
-            // kullanici verileri sifirlanip, root view login olarak ayarlanir ve kullanici ana menuye donderilir.
-            UserValues.loginToken = nil
-            UserValues.userId = nil
-            
-            let destination = UIStoryboard.init(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginNavigationController") as! UINavigationController
-            self.present(destination, animated: true, completion: nil)
+            self.resetUserValuesAndShowLoginView()
         }
         
         alert.addAction(cancel)
         alert.addAction(ok)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+
+    /// Kullanici verilerinin sifirlanip login ekranina yonlendirir.
+    fileprivate func resetUserValuesAndShowLoginView() {
+        UserValues.loginToken = nil
+        UserValues.userId = nil
+        
+        let destination = UIStoryboard.init(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginNavigationController") as! UINavigationController
+        self.present(destination, animated: true, completion: nil)
     }
   
 }
