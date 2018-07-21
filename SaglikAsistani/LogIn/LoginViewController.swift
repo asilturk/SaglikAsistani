@@ -62,13 +62,13 @@ extension LoginViewController {
             return
         }
         
-        let emailResult = Validator.emailValidate(email)
+//        let emailResult = Validator.emailValidate(email)
         let passwordResult = Validator.passwordValidate(password)
         
-        if !emailResult.result {
-            self.showCardAlert(title: nil, message: emailResult.errorMessage!, type: .Error)
-            return
-        }
+//        if !emailResult.result {
+//            self.showCardAlert(title: nil, message: emailResult.errorMessage!, type: .Error)
+//            return
+//        }
         
         if !passwordResult.result {
             self.showCardAlert(title: nil, message: passwordResult.errorMessage!, type: .Error)

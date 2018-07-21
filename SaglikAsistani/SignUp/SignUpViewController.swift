@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import InputMask
 import SwiftMessages
 
 // TODO: telefon 05 ile baslamasini saglayacak kontroller yazilmali
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, MaskedTextFieldDelegateListener {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -20,6 +21,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var heighTextField: UITextField!
     @IBOutlet weak var userAgreementButton: UIButton!
+    
+      var maskedDelegate: MaskedTextFieldDelegate!
     
     var datePicker: UIDatePicker!
     var gender: String?
@@ -31,15 +34,20 @@ class SignUpViewController: UIViewController {
     
     lazy var dateFormatter: DateFormatter? = {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.dateFormat = "dd-MM-yyyy"
         return dateFormatter
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupKeyboardTypeForTextFields()
+        
+        maskedDelegate = MaskedTextFieldDelegate(format: "{0} (5[00]) [000] [00] [00]")
+        maskedDelegate.listener = self
+        
+        phoneTextField.delegate = maskedDelegate
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.showNavigationBar()
@@ -307,3 +315,4 @@ extension SignUpViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
 }
+
