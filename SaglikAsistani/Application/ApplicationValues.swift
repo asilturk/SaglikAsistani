@@ -11,7 +11,7 @@ import Foundation
 struct ApplicaitonValues {
     // TODO: Buraya firebase token eklenecek.
     static let platform = "ios"
-    static var notificationToken = "xxx"
+    static var notificationToken = ""
     static var versionNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
     
     private init() {}

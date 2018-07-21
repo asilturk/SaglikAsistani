@@ -50,21 +50,13 @@ extension Server {
         
         var request = URLRequest.init(url: URL.init(string: "http://uygulama.planpiri.com/mobil/user_control")!)
         var post = ""
-        
-        post += "user_id=39"
-        post += "&login_token=209519642353769110788624548370"
-        post += "&ios_notify_token=xxx"
-        post += "&platform=ios"
-        post += "&versiyon=1.0"
-        
-        
-//        post += "user_id=" + UserValues.userId!
-//        post += "&login_token=" + UserValues.loginToken!
-//        post += "&ios_notify_token=" + ApplicaitonValues.notificationToken
-//        post += "&platform=" + ApplicaitonValues.platform
-//        post += "&versiyon=" + ApplicaitonValues.versionNumber
-        
-        print("### \(post)")
+    
+        post += "user_id=\(UserValues.userId!)"
+        post += "&login_token=\(UserValues.loginToken!)"
+        post += "&ios_notify_token=\(ApplicaitonValues.notificationToken)"
+        post += "&platform=\(ApplicaitonValues.platform)"
+        post += "&versiyon=\(ApplicaitonValues.versionNumber)"
+//        print("### \(post)")
         
         request.httpBody = post.data(using: .utf8)
         request.httpMethod = "POST"
@@ -72,12 +64,12 @@ extension Server {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             guard error == nil else {
-                completion(false, error?.localizedDescription ?? ":8")
+                completion(false, error?.localizedDescription ?? "")
                 return
             }
             
             guard let json = try? JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as! [String: Any] else {
-                completion(false, ":7")
+                completion(false, "")
                 return
             }
             

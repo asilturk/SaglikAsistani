@@ -165,10 +165,10 @@ extension SignUpViewController {
             return false
         }
         
-        if !Validator.numberValidate(phoneNumber) || phoneNumber.count != 11 {
-            self.showCardAlert(title: nil, message: "Telefon numarası 11 haneli rakam olmalıdır", type: .Warning)
-            return false
-        }
+//        if !Validator.numberValidate(phoneNumber) || phoneNumber.count != 11 {
+//            self.showCardAlert(title: nil, message: "Telefon numarası 11 haneli rakam olmalıdır", type: .Warning)
+//            return false
+//        }
         
         return true
     }
