@@ -70,51 +70,51 @@ extension MainViewController {
     
     
     /// WebView uzerinde programmatic olarak signOut butonu olusturur.
-    fileprivate func initiliazeSignOutButton() {
-        let frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
-        let logoutButton = UIButton.init(frame: frame)
-        
-        logoutButton.setImage(#imageLiteral(resourceName: "logout-icon"), for: UIControlState.normal)
-        logoutButton.translatesAutoresizingMaskIntoConstraints = false
-        logoutButton.addTarget(nil, action: #selector(logoutButtonTouched), for: UIControlEvents.touchUpInside)
-        
-        self.view.addSubview(logoutButton)
-        
-        // button constraints
-        let trailingConstraint = NSLayoutConstraint(item: logoutButton,
-                                                    attribute: NSLayoutAttribute.trailing,
-                                                    relatedBy: NSLayoutRelation.equal,
-                                                    toItem: view,
-                                                    attribute: NSLayoutAttribute.trailing,
-                                                    multiplier: 1,
-                                                    constant: 20)
-        
-        let topConstraint = NSLayoutConstraint(item: logoutButton,
-                                               attribute: NSLayoutAttribute.top,
-                                               relatedBy: NSLayoutRelation.equal,
-                                               toItem: view,
-                                               attribute: NSLayoutAttribute.top,
-                                               multiplier: 1,
-                                               constant: -17)
-        
-        let widthConstraint = NSLayoutConstraint(item: logoutButton,
-                                                 attribute: NSLayoutAttribute.width,
-                                                 relatedBy: NSLayoutRelation.equal,
-                                                 toItem: nil,
-                                                 attribute: NSLayoutAttribute.notAnAttribute,
-                                                 multiplier: 1,
-                                                 constant: 100)
-
-        let heightConstraint = NSLayoutConstraint(item: logoutButton,
-                                                  attribute: NSLayoutAttribute.height,
-                                                  relatedBy: NSLayoutRelation.equal,
-                                                  toItem: nil,
-                                                  attribute: NSLayoutAttribute.notAnAttribute,
-                                                  multiplier: 1,
-                                                  constant: 100)
-        
-        view.addConstraints([trailingConstraint, topConstraint, widthConstraint, heightConstraint])
-    }
+//    fileprivate func initiliazeSignOutButton() {
+//        let frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+//        let logoutButton = UIButton.init(frame: frame)
+//
+//        logoutButton.setImage(#imageLiteral(resourceName: "logout-icon"), for: UIControlState.normal)
+//        logoutButton.translatesAutoresizingMaskIntoConstraints = false
+//        logoutButton.addTarget(nil, action: #selector(logoutButtonTouched), for: UIControlEvents.touchUpInside)
+//
+//        self.view.addSubview(logoutButton)
+//
+//        // button constraints
+//        let trailingConstraint = NSLayoutConstraint(item: logoutButton,
+//                                                    attribute: NSLayoutAttribute.trailing,
+//                                                    relatedBy: NSLayoutRelation.equal,
+//                                                    toItem: view,
+//                                                    attribute: NSLayoutAttribute.trailing,
+//                                                    multiplier: 1,
+//                                                    constant: 20)
+//
+//        let topConstraint = NSLayoutConstraint(item: logoutButton,
+//                                               attribute: NSLayoutAttribute.top,
+//                                               relatedBy: NSLayoutRelation.equal,
+//                                               toItem: view,
+//                                               attribute: NSLayoutAttribute.top,
+//                                               multiplier: 1,
+//                                               constant: -17)
+//
+//        let widthConstraint = NSLayoutConstraint(item: logoutButton,
+//                                                 attribute: NSLayoutAttribute.width,
+//                                                 relatedBy: NSLayoutRelation.equal,
+//                                                 toItem: nil,
+//                                                 attribute: NSLayoutAttribute.notAnAttribute,
+//                                                 multiplier: 1,
+//                                                 constant: 100)
+//
+//        let heightConstraint = NSLayoutConstraint(item: logoutButton,
+//                                                  attribute: NSLayoutAttribute.height,
+//                                                  relatedBy: NSLayoutRelation.equal,
+//                                                  toItem: nil,
+//                                                  attribute: NSLayoutAttribute.notAnAttribute,
+//                                                  multiplier: 1,
+//                                                  constant: 100)
+//
+//        view.addConstraints([trailingConstraint, topConstraint, widthConstraint, heightConstraint])
+//    }
     
     
     /// Webview'in url ve login token'a gore baslatilmasi.
@@ -174,7 +174,73 @@ extension MainViewController {
 // MARK: - WKNavigationDelegate
 extension MainViewController {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        self.initiliazeSignOutButton()
+//        self.initiliazeSignOutButton()
         self.activityIndicator.stopAnimating()
     }
+}
+
+
+// MARK: -
+extension MainViewController {
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        
+        var action: WKNavigationActionPolicy?
+        defer { decisionHandler(action ?? .allow) }
+        
+        guard let url = navigationAction.request.url else { return }
+        
+        print("tiklanan url:", url)
+        
+        // TODO: shareme://%7B%22title%22:%22bkgg%22,%20%22text%22:%22bkgg%22%7D bunu parse edip verileri paylas
+        
+        // TODO: logout sorulacak.
+        
+//        http://uygulama.planpiri.com/mobil/logout
+//        tiklanan url: http://uygulama.planpiri.com/quit:
+        
+//        if navigationAction.navigationType == .linkActivated, url.absoluteString.hasPrefix("http://www.example.com/open-in-safari") {
+//            action = .cancel                  // Stop in WebView
+//            UIApplication.shared.openURL(url) // Open in Safari
+//        }
+        
+        // quit tiklandiginda, alert basilip webView yenilenir.
+        if navigationAction.navigationType == .linkActivated, url.absoluteString.contains("quit:") {
+            self.logoutButtonTouched()
+            self.startWebView()
+        }
+        
+        // reklama tikladiginda safariye yonlendirir.
+        if navigationAction.navigationType == .linkActivated, url.absoluteString.contains("golink://") {
+            
+            var targetURLString = String(url.absoluteString.dropFirst(9))
+            
+            if url.absoluteString.hasPrefix("http//") {
+                targetURLString = String(url.absoluteString.dropFirst(15))
+                targetURLString = "https://" + targetURLString
+            }
+            
+//            print("url : \(url.absoluteString)")
+            targetURLString = "https://" + String(url.absoluteString.dropFirst(15))
+            let targetURL = URL.init(string: targetURLString)
+//            print("target URL : \(targetURLString)")
+
+            UIApplication.shared.open(targetURL!, options: [:], completionHandler: nil)
+        }
+        
+        
+        
+    }
+    
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+//        print(String(describing: webView.url))
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        let nserror = error as NSError
+        if nserror.code != NSURLErrorCancelled {
+            webView.loadHTMLString("404 - Page Not Found", baseURL: URL(string: "http://www.planpiri.com/"))
+        }
+    }
+    
 }
