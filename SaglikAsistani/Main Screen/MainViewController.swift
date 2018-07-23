@@ -218,7 +218,43 @@ extension MainViewController {
             UIApplication.shared.open(targetURL!, options: [:], completionHandler: nil)
         }
         
+        // share butonu ile verilerin paylasilmasi
+        if navigationAction.navigationType == .linkActivated, url.absoluteString.contains("shareme://") {
+            let urlString = String(url.absoluteString.dropFirst(10))
+
+            guard let decodeString = urlString.decodeUrl() else {
+                return
+            }
+            
+            guard let dict = convertToDictionary(text: decodeString) else {
+                return
+            }
+            
+            let title = dict["title"]
+            let text = dict["text"]
+            
+            print("title: \(title)")
+            print("text: \(text)")
+            
+        }
+        
     }
+}
+
+extension MainViewController {
+    func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
+}
+
+
 //
 //    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
 //    }
@@ -229,5 +265,4 @@ extension MainViewController {
 //            webView.loadHTMLString("404 - Page Not Found", baseURL: URL(string: "http://www.planpiri.com/"))
 //        }
 //    }
-    
-}
+

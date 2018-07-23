@@ -30,6 +30,7 @@
 		EA8BB26420F7DB4F00B07180 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB26320F7DB4F00B07180 /* MainViewController.swift */; };
 		EAC0059720EFE21D00648B48 /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC0059620EFE21D00648B48 /* SignUpCoordinator.swift */; };
 		EAC0059B20EFE53200648B48 /* ApplicationValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC0059A20EFE53200648B48 /* ApplicationValues.swift */; };
+		EAF7B49F21064CDA00271830 /* EncodeDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7B49E21064CDA00271830 /* EncodeDecode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		EA8BB26320F7DB4F00B07180 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EAC0059620EFE21D00648B48 /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
 		EAC0059A20EFE53200648B48 /* ApplicationValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationValues.swift; sourceTree = "<group>"; };
+		EAF7B49E21064CDA00271830 /* EncodeDecode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodeDecode.swift; sourceTree = "<group>"; };
 		EE867011A702A4A9E41BFE96 /* Pods-SaglikAsistaniUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniUITests/Pods-SaglikAsistaniUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +146,7 @@
 			children = (
 				EA20709C20ED97420074AF15 /* SwiftMessages.swift */,
 				EA651C9120F9D8B7009B2FB0 /* ActivityIndicator.swift */,
+				EAF7B49E21064CDA00271830 /* EncodeDecode.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				EA4EAA4620F546AA005D77C4 /* UserValues.swift in Sources */,
 				EAC0059B20EFE53200648B48 /* ApplicationValues.swift in Sources */,
 				EA69FAF320ED6C350052930E /* AppDelegate.swift in Sources */,
+				EAF7B49F21064CDA00271830 /* EncodeDecode.swift in Sources */,
 				EA20709D20ED97420074AF15 /* SwiftMessages.swift in Sources */,
 				EA5B81A520EFD7A600AC6F13 /* Server.swift in Sources */,
 			);
