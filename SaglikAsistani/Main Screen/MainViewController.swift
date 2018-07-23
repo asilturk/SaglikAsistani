@@ -180,7 +180,7 @@ extension MainViewController {
 }
 
 
-// MARK: -
+// MARK: - WebView Delegates
 extension MainViewController {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -191,19 +191,7 @@ extension MainViewController {
         guard let url = navigationAction.request.url else { return }
         
         print("tiklanan url:", url)
-        
-        // TODO: shareme://%7B%22title%22:%22bkgg%22,%20%22text%22:%22bkgg%22%7D bunu parse edip verileri paylas
-        
-        // TODO: logout sorulacak.
-        
-//        http://uygulama.planpiri.com/mobil/logout
-//        tiklanan url: http://uygulama.planpiri.com/quit:
-        
-//        if navigationAction.navigationType == .linkActivated, url.absoluteString.hasPrefix("http://www.example.com/open-in-safari") {
-//            action = .cancel                  // Stop in WebView
-//            UIApplication.shared.openURL(url) // Open in Safari
-//        }
-        
+
         // quit tiklandiginda, alert basilip webView yenilenir.
         if navigationAction.navigationType == .linkActivated, url.absoluteString.contains("quit:") {
             self.logoutButtonTouched()
@@ -220,27 +208,26 @@ extension MainViewController {
                 targetURLString = "https://" + targetURLString
             }
             
-//            print("url : \(url.absoluteString)")
-            targetURLString = "https://" + String(url.absoluteString.dropFirst(15))
+            if url.absoluteString.hasPrefix("htpps//") {
+                targetURLString = String(url.absoluteString.dropFirst(16))
+                targetURLString = "https://" + targetURLString
+            }
+            
             let targetURL = URL.init(string: targetURLString)
-//            print("target URL : \(targetURLString)")
 
             UIApplication.shared.open(targetURL!, options: [:], completionHandler: nil)
         }
         
-        
-        
     }
-    
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-//        print(String(describing: webView.url))
-    }
-    
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        let nserror = error as NSError
-        if nserror.code != NSURLErrorCancelled {
-            webView.loadHTMLString("404 - Page Not Found", baseURL: URL(string: "http://www.planpiri.com/"))
-        }
-    }
+//
+//    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+//    }
+//
+//    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+//        let nserror = error as NSError
+//        if nserror.code != NSURLErrorCancelled {
+//            webView.loadHTMLString("404 - Page Not Found", baseURL: URL(string: "http://www.planpiri.com/"))
+//        }
+//    }
     
 }

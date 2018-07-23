@@ -52,6 +52,7 @@ extension LoginViewController {
 extension LoginViewController {
  
     fileprivate func validateUserValuesAndLogin() {
+        
         guard let email = self.emailTextField.text, email != "" else {
             self.showCardAlert(title: nil, message: "Email adresinizi giriniz", type: .Warning)
             return
@@ -59,19 +60,6 @@ extension LoginViewController {
         
         guard let password = passwordTextField.text, password != "" else {
             self.showCardAlert(title: nil, message: "Şifrenizi giriniz", type: .Warning)
-            return
-        }
-        
-//        let emailResult = Validator.emailValidate(email)
-        let passwordResult = Validator.passwordValidate(password)
-        
-//        if !emailResult.result {
-//            self.showCardAlert(title: nil, message: emailResult.errorMessage!, type: .Error)
-//            return
-//        }
-        
-        if !passwordResult.result {
-            self.showCardAlert(title: nil, message: passwordResult.errorMessage!, type: .Error)
             return
         }
         
