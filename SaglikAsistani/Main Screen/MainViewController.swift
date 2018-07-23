@@ -68,55 +68,6 @@ class MainViewController: UIViewController, WKNavigationDelegate {
 // MARK: - Auxiliary Methods
 extension MainViewController {
     
-    
-    /// WebView uzerinde programmatic olarak signOut butonu olusturur.
-//    fileprivate func initiliazeSignOutButton() {
-//        let frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
-//        let logoutButton = UIButton.init(frame: frame)
-//
-//        logoutButton.setImage(#imageLiteral(resourceName: "logout-icon"), for: UIControlState.normal)
-//        logoutButton.translatesAutoresizingMaskIntoConstraints = false
-//        logoutButton.addTarget(nil, action: #selector(logoutButtonTouched), for: UIControlEvents.touchUpInside)
-//
-//        self.view.addSubview(logoutButton)
-//
-//        // button constraints
-//        let trailingConstraint = NSLayoutConstraint(item: logoutButton,
-//                                                    attribute: NSLayoutAttribute.trailing,
-//                                                    relatedBy: NSLayoutRelation.equal,
-//                                                    toItem: view,
-//                                                    attribute: NSLayoutAttribute.trailing,
-//                                                    multiplier: 1,
-//                                                    constant: 20)
-//
-//        let topConstraint = NSLayoutConstraint(item: logoutButton,
-//                                               attribute: NSLayoutAttribute.top,
-//                                               relatedBy: NSLayoutRelation.equal,
-//                                               toItem: view,
-//                                               attribute: NSLayoutAttribute.top,
-//                                               multiplier: 1,
-//                                               constant: -17)
-//
-//        let widthConstraint = NSLayoutConstraint(item: logoutButton,
-//                                                 attribute: NSLayoutAttribute.width,
-//                                                 relatedBy: NSLayoutRelation.equal,
-//                                                 toItem: nil,
-//                                                 attribute: NSLayoutAttribute.notAnAttribute,
-//                                                 multiplier: 1,
-//                                                 constant: 100)
-//
-//        let heightConstraint = NSLayoutConstraint(item: logoutButton,
-//                                                  attribute: NSLayoutAttribute.height,
-//                                                  relatedBy: NSLayoutRelation.equal,
-//                                                  toItem: nil,
-//                                                  attribute: NSLayoutAttribute.notAnAttribute,
-//                                                  multiplier: 1,
-//                                                  constant: 100)
-//
-//        view.addConstraints([trailingConstraint, topConstraint, widthConstraint, heightConstraint])
-//    }
-    
-    
     /// Webview'in url ve login token'a gore baslatilmasi.
     fileprivate func startWebView() {
         
@@ -168,7 +119,24 @@ extension MainViewController {
         let destination = UIStoryboard.init(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginNavigationController") as! UINavigationController
         self.present(destination, animated: true, completion: nil)
     }
+    
+    /// kullanici paylasima tiklandiginda alinan verileri parse etmede kullanilir
+    fileprivate func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
   
+    /// Sosyal mecraalarda paylasim
+    fileprivate func share(title: String?, text: String?) {
+        let activityController = UIActivityViewController.init(activityItems: [title, text], applicationActivities: nil)
+        self.present(activityController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - WKNavigationDelegate
@@ -230,30 +198,15 @@ extension MainViewController {
                 return
             }
             
-            let title = dict["title"]
-            let text = dict["text"]
+            let title = dict["title"] as? String
+            let text = dict["text"] as? String
             
-            print("title: \(title)")
-            print("text: \(text)")
-            
+            self.share(title: title, text: text)
+
         }
         
     }
 }
-
-extension MainViewController {
-    func convertToDictionary(text: String) -> [String: Any]? {
-        if let data = text.data(using: .utf8) {
-            do {
-                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        return nil
-    }
-}
-
 
 //
 //    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
