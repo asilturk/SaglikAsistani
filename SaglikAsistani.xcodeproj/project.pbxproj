@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3060593FE2D08E820EB0774E /* Pods_SaglikAsistaniTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B77D648832EFA81AD629B9 /* Pods_SaglikAsistaniTests.framework */; };
-		C893F9B134E9A97BD274E56F /* Pods_SaglikAsistani.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76DC74CAD7F3D6FB5E676F00 /* Pods_SaglikAsistani.framework */; };
-		CC37F7E6FA2978F7C74B051A /* Pods_SaglikAsistaniUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 386BFCCE1C59E3FC2F211835 /* Pods_SaglikAsistaniUITests.framework */; };
+		5C68C74D2A44FCB4ED8E2B2E /* libPods-SaglikAsistani.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB40BA6E068FB91A5244149 /* libPods-SaglikAsistani.a */; };
+		BD1A5F65B493277E8F4D73AC /* libPods-SaglikAsistaniTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DAC30233B3DCFC7E230511C /* libPods-SaglikAsistaniTests.a */; };
 		EA20709D20ED97420074AF15 /* SwiftMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20709C20ED97420074AF15 /* SwiftMessages.swift */; };
 		EA47C5FC20F9422000CC526D /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA47C5FB20F9422000CC526D /* InternetConnection.swift */; };
 		EA491BAC210362EC00DBF73C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA491BAB210362EC00DBF73C /* GoogleService-Info.plist */; };
@@ -31,6 +30,7 @@
 		EAC0059720EFE21D00648B48 /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC0059620EFE21D00648B48 /* SignUpCoordinator.swift */; };
 		EAC0059B20EFE53200648B48 /* ApplicationValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC0059A20EFE53200648B48 /* ApplicationValues.swift */; };
 		EAF7B49F21064CDA00271830 /* EncodeDecode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7B49E21064CDA00271830 /* EncodeDecode.swift */; };
+		F31D4AB7E64D8BCA46DD6E8E /* libPods-SaglikAsistaniUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C646DCAD7CB7297085628A /* libPods-SaglikAsistaniUITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,13 +52,13 @@
 
 /* Begin PBXFileReference section */
 		2D4AC9473E2D83086614935D /* Pods-SaglikAsistaniTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniTests/Pods-SaglikAsistaniTests.release.xcconfig"; sourceTree = "<group>"; };
-		386BFCCE1C59E3FC2F211835 /* Pods_SaglikAsistaniUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaglikAsistaniUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		468DE5B243C33016468AB186 /* Pods-SaglikAsistani.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistani.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistani/Pods-SaglikAsistani.debug.xcconfig"; sourceTree = "<group>"; };
+		4DAC30233B3DCFC7E230511C /* libPods-SaglikAsistaniTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SaglikAsistaniTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59B119D957E62B1F9F9FA157 /* Pods-SaglikAsistaniUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniUITests/Pods-SaglikAsistaniUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		76DC74CAD7F3D6FB5E676F00 /* Pods_SaglikAsistani.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaglikAsistani.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75C646DCAD7CB7297085628A /* libPods-SaglikAsistaniUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SaglikAsistaniUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BABC8258414E9AC68126E42 /* Pods-SaglikAsistani.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistani.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistani/Pods-SaglikAsistani.release.xcconfig"; sourceTree = "<group>"; };
+		8DB40BA6E068FB91A5244149 /* libPods-SaglikAsistani.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SaglikAsistani.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF8EB7B32AC2CF3567CB4B79 /* Pods-SaglikAsistaniTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniTests/Pods-SaglikAsistaniTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D5B77D648832EFA81AD629B9 /* Pods_SaglikAsistaniTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SaglikAsistaniTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA20709C20ED97420074AF15 /* SwiftMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMessages.swift; sourceTree = "<group>"; };
 		EA47C5FB20F9422000CC526D /* InternetConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
 		EA491BAB210362EC00DBF73C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C893F9B134E9A97BD274E56F /* Pods_SaglikAsistani.framework in Frameworks */,
+				5C68C74D2A44FCB4ED8E2B2E /* libPods-SaglikAsistani.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3060593FE2D08E820EB0774E /* Pods_SaglikAsistaniTests.framework in Frameworks */,
+				BD1A5F65B493277E8F4D73AC /* libPods-SaglikAsistaniTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC37F7E6FA2978F7C74B051A /* Pods_SaglikAsistaniUITests.framework in Frameworks */,
+				F31D4AB7E64D8BCA46DD6E8E /* libPods-SaglikAsistaniUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,9 +134,9 @@
 		61F29BF7B8840E053062404B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				76DC74CAD7F3D6FB5E676F00 /* Pods_SaglikAsistani.framework */,
-				D5B77D648832EFA81AD629B9 /* Pods_SaglikAsistaniTests.framework */,
-				386BFCCE1C59E3FC2F211835 /* Pods_SaglikAsistaniUITests.framework */,
+				8DB40BA6E068FB91A5244149 /* libPods-SaglikAsistani.a */,
+				4DAC30233B3DCFC7E230511C /* libPods-SaglikAsistaniTests.a */,
+				75C646DCAD7CB7297085628A /* libPods-SaglikAsistaniUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -284,7 +284,7 @@
 				EA69FAEB20ED6C350052930E /* Sources */,
 				EA69FAEC20ED6C350052930E /* Frameworks */,
 				EA69FAED20ED6C350052930E /* Resources */,
-				0A1393D2896515524168954C /* [CP] Embed Pods Frameworks */,
+				01F72C4ECC7A2FEAC1FCB2C8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -414,32 +414,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A1393D2896515524168954C /* [CP] Embed Pods Frameworks */ = {
+		01F72C4ECC7A2FEAC1FCB2C8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SaglikAsistani/Pods-SaglikAsistani-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/InputMask/InputMask.framework",
-				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${SRCROOT}/Pods/Target Support Files/Pods-SaglikAsistani/Pods-SaglikAsistani-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/SwiftMessages/SwiftMessages.bundle",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InputMask.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SwiftMessages.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SaglikAsistani/Pods-SaglikAsistani-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SaglikAsistani/Pods-SaglikAsistani-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		18382E602DE6C706FA2E059E /* [CP] Check Pods Manifest.lock */ = {
