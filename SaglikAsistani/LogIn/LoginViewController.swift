@@ -20,8 +20,8 @@ class LoginViewController: UIViewController {
         self.setupKeyboardTypeForTextFields()
         
         // FIXME: - buralari sil, test icin ekledik
-//        self.emailTextField.text = "bf.asilturk@gmail.com"
-//        self.passwordTextField.text = "658340"
+        self.emailTextField.text = "bf.asilturk@gmail.com"
+        self.passwordTextField.text = "658340"
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -176,6 +176,11 @@ extension MainViewController {
                 targetURLString = "https://" + targetURLString
             }
             
+            if targetURLString.hasPrefix("http//") {
+                targetURLString = String(url.absoluteString.dropFirst(15))
+                targetURLString = "https://" + targetURLString
+            }
+            
             if url.absoluteString.hasPrefix("htpps//") {
                 targetURLString = String(url.absoluteString.dropFirst(16))
                 targetURLString = "https://" + targetURLString
