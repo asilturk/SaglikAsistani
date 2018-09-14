@@ -9,7 +9,17 @@
 import UIKit
 import WebKit
 
-// TODO: - LoginToken bos ise birseyler yapmak gerekebilir. 
+// javascript run in wkwebview example: https://medium.com/capital-one-developers/javascript-manipulation-on-ios-using-webkit-2b1115e7e405
+//
+//    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+//    }
+//
+//    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+//        let nserror = error as NSError
+//        if nserror.code != NSURLErrorCancelled {
+//            webView.loadHTMLString("404 - Page Not Found", baseURL: URL(string: "http://www.planpiri.com/"))
+//        }
+//    }
 
 class MainViewController: UIViewController, WKNavigationDelegate {
 
@@ -213,6 +223,7 @@ extension MainViewController {
     }
 }
 
+// MARK: - Shake
 extension MainViewController {
     override func becomeFirstResponder() -> Bool {
         return true
@@ -224,15 +235,3 @@ extension MainViewController {
         }
     }
 }
-
-//
-//    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-//    }
-//
-//    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-//        let nserror = error as NSError
-//        if nserror.code != NSURLErrorCancelled {
-//            webView.loadHTMLString("404 - Page Not Found", baseURL: URL(string: "http://www.planpiri.com/"))
-//        }
-//    }
-
