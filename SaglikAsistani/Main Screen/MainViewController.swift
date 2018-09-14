@@ -213,6 +213,18 @@ extension MainViewController {
     }
 }
 
+extension MainViewController {
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            print("O yanada bu yanada salla")
+        }
+    }
+}
+
 //
 //    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
 //    }
