@@ -13,3 +13,4 @@ struct ApplicaitonValues {
     static var notificationToken = ""
     static var versionNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
 }
+

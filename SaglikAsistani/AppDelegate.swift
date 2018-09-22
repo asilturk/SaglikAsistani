@@ -37,11 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
-    /// Login token burda kontrol edilir
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        
-    }
     
+    func applicationDidBecomeActive(_ application: UIApplication) {} /// Login token burda kontrol edilir
     func applicationWillResignActive(_ application: UIApplication) {}
     func applicationDidEnterBackground(_ application: UIApplication) {}
     func applicationWillEnterForeground(_ application: UIApplication) {}
@@ -64,11 +61,7 @@ extension AppDelegate {
         let mainVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         self.window?.rootViewController = mainVC
     }
-    
-    
 }
-
-
 
 extension AppDelegate : MessagingDelegate {
 
@@ -84,6 +77,16 @@ extension AppDelegate : MessagingDelegate {
         print("Received data message: \(remoteMessage.appData)")
         
     }
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+
+        guard let pageString = userInfo["page"] as? String else {
+            return
+        }
+        
+        let replacingPageString = pageString.replacingOccurrences(of: ".", with: "/")
+        HandledPushValues.pageURLString = replacingPageString
+    }
+    
     // [END ios_10_data_message]
 }
 

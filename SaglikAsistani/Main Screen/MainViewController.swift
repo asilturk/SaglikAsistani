@@ -34,6 +34,7 @@ class MainViewController: UIViewController, WKNavigationDelegate {
     
     private lazy var webView: WKWebView = {
         var webView = WKWebView()
+        webView.frame = self.view.frame
         webView.scrollView.isScrollEnabled = false
         webView.allowsBackForwardNavigationGestures = true
         return webView
@@ -85,7 +86,7 @@ extension MainViewController {
         
         let urlString = "http://uygulama.planpiri.com/mobil/go/" + UserValues.loginToken!
         guard let url = URL.init(string: urlString) else { return }
-        webView.load(URLRequest(url: url))
+        self.webView.load(URLRequest(url: url))
     }
     
     // Internetin olmamasi durumunda, kullaniciya tekrar baglanmasi icin alert gosterir.
