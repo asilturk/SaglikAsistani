@@ -77,6 +77,7 @@ extension AppDelegate : MessagingDelegate {
         print("Received data message: \(remoteMessage.appData)")
         
     }
+    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
 
         guard let pageString = userInfo["page"] as? String else {

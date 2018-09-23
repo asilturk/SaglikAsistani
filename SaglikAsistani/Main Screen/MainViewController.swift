@@ -148,6 +148,15 @@ extension MainViewController {
         let activityController = UIActivityViewController.init(activityItems: [title, text], applicationActivities: nil)
         self.present(activityController, animated: true, completion: nil)
     }
+    
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+//        print("Oyanada buyanada salla")
+        webView.evaluateJavaScript("shake_ios_gorev_tamamla()") { (result, error) in
+            if error != nil {
+                print(result)
+            }
+        }
+    }
 }
 
 // MARK: - WKNavigationDelegate
@@ -223,16 +232,16 @@ extension MainViewController {
         
     }
 }
-
-// MARK: - Shake
-extension MainViewController {
-    override func becomeFirstResponder() -> Bool {
-        return true
-    }
-    
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            print("O yanada bu yanada salla")
-        }
-    }
-}
+//
+//// MARK: - Shake
+//extension MainViewController {
+//    override func becomeFirstResponder() -> Bool {
+//        return true
+//    }
+//
+//    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+//        if motion == .motionShake {
+//            print("O yanada bu yanada salla")
+//        }
+//    }
+//}

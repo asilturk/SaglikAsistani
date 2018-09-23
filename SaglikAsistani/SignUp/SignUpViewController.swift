@@ -42,7 +42,7 @@ class SignUpViewController: UIViewController, MaskedTextFieldDelegateListener {
         super.viewDidLoad()
         self.setupKeyboardTypeForTextFields()
         
-        maskedDelegate = MaskedTextFieldDelegate(format: "{0} (5[00]) [000] [00] [00]")
+        maskedDelegate = MaskedTextFieldDelegate(primaryFormat: "{0} (5[00]) [000] [00] [00]")
         maskedDelegate.listener = self
         
         phoneTextField.delegate = maskedDelegate
