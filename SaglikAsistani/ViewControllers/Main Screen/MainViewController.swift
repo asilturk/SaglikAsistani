@@ -31,16 +31,6 @@ class MainViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.main.async {
-            let frame = CGRect(x: 0, y: 10, width: self.view.frame.width, height: self.view.frame.height)
-            self.webView.frame = frame
-            self.webView.navigationDelegate = self
-
-            self.view.addSubview(self.webView)
-            
-            self.activityIndicator.startAnimating()
-            self.startWebView()
-        }
     }
     
     
@@ -66,6 +56,25 @@ class MainViewController: UIViewController, WKNavigationDelegate {
 
 // MARK: - Auxiliary Methods
 extension MainViewController {
+    
+    private func didLoadProcess() {
+        
+        // notification'a tiklandiginda yakalam icin delegate atanmasi
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.pushNotificationDelegate = self
+        
+        // web view olusturmasi ve atamasi
+        DispatchQueue.main.async {
+            let frame = CGRect(x: 0, y: 10, width: self.view.frame.width, height: self.view.frame.height)
+            self.webView.frame = frame
+            self.webView.navigationDelegate = self
+            
+            self.view.addSubview(self.webView)
+            
+            self.activityIndicator.startAnimating()
+            self.startWebView()
+        }
+    }
     
     /// Webview'in url ve login token'a gore baslatilmasi.
     fileprivate func startWebView() {
@@ -221,3 +230,9 @@ extension MainViewController {
     }
 }
 
+
+extension MainViewController: PushNotificaitonDelegate {
+    func notificationTapped(_ targetURL: URL) {
+        print("AMAN ALLAHIM :D")
+    }
+}
