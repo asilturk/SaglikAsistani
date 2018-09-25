@@ -73,7 +73,7 @@ extension AppDelegate {
 }
 
 // MARK: - MessagingDelegate
-extension AppDelegate : MessagingDelegate {
+extension AppDelegate: MessagingDelegate {
 
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
@@ -93,10 +93,10 @@ extension AppDelegate : MessagingDelegate {
         guard let pageString = userInfo["page"] as? String else {
             return
         }
-        
+
         let replacingPageString = pageString.replacingOccurrences(of: ".", with: "/")
 //        HandledPushValues.pageURLString = replacingPageString
-        
+
         let targetURLString = Server.URLString.baseURLString + replacingPageString
         guard let targetURL = URL.init(string: targetURLString) else {
             return

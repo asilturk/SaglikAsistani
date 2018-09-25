@@ -31,6 +31,7 @@ class MainViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.didLoadProcess()
     }
     
     
