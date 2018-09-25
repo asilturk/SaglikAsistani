@@ -9,6 +9,7 @@
 import Foundation
 
 struct Server {
+    static let baseURL = URL.init(string: "http://uygulama.planpiri.com/")
     static let loginURL = URL.init(string: "http://uygulama.planpiri.com/mobil/user_login")
     static let resetPasswordURL = URL.init(string: "http://uygulama.planpiri.com/mobil/reset_password")
     static let registerURL = URL.init(string: "http://uygulama.planpiri.com/mobil/user_register")

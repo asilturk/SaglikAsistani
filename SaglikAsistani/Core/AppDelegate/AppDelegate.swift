@@ -10,6 +10,13 @@ import UIKit
 import Firebase
 import UserNotifications
 
+
+/// Kullanici gelen bildirime tikladiginda ilgili alana yonlendirmek icin kullanilir.
+protocol PushNotificaitonDelegate: class {
+    func notificationTapped()
+}
+
+/// MARK: - AppDelegate class
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
@@ -63,6 +70,7 @@ extension AppDelegate {
     }
 }
 
+// MARK: - MessagingDelegate
 extension AppDelegate : MessagingDelegate {
 
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
@@ -88,7 +96,6 @@ extension AppDelegate : MessagingDelegate {
         HandledPushValues.pageURLString = replacingPageString
     }
     
-    // [END ios_10_data_message]
 }
 
 

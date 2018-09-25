@@ -154,6 +154,46 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		EA285660215A946E006BDB6B /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				EA69FAF220ED6C350052930E /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		EA285661215A94B0006BDB6B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EA285660215A946E006BDB6B /* AppDelegate */,
+				EA5B81A620EFD7B800AC6F13 /* Application */,
+				EA20709B20ED97310074AF15 /* Extensions */,
+				EA69FB2320ED7EA00052930E /* Validation */,
+				EA5F946120F127B3007E9D1A /* User */,
+				EA69FB2020ED6C8B0052930E /* Supporting Files */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		EA285662215A94B9006BDB6B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EA69FB2120ED6C960052930E /* LogIn */,
+				EA69FB2620ED83140052930E /* SignUp */,
+				EA8BB26020F7DB0B00B07180 /* Main Screen */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EA285663215A94F4006BDB6B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				EA69FAF620ED6C350052930E /* Login.storyboard */,
+				EA8BB26120F7DB2100B07180 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		EA5B81A620EFD7B800AC6F13 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,18 +239,11 @@
 		EA69FAF120ED6C350052930E /* SaglikAsistani */ = {
 			isa = PBXGroup;
 			children = (
+				EA285663215A94F4006BDB6B /* Storyboards */,
+				EA285661215A94B0006BDB6B /* Core */,
 				EA491BAD210363A200DBF73C /* SaglikAsistani.entitlements */,
-				EA69FAF220ED6C350052930E /* AppDelegate.swift */,
-				EA69FAFE20ED6C360052930E /* Info.plist */,
 				EA491BAB210362EC00DBF73C /* GoogleService-Info.plist */,
-				EA5B81A620EFD7B800AC6F13 /* Application */,
-				EA20709B20ED97310074AF15 /* Extensions */,
-				EA69FB2320ED7EA00052930E /* Validation */,
-				EA5F946120F127B3007E9D1A /* User */,
-				EA69FB2120ED6C960052930E /* LogIn */,
-				EA69FB2620ED83140052930E /* SignUp */,
-				EA8BB26020F7DB0B00B07180 /* Main Screen */,
-				EA69FB2020ED6C8B0052930E /* Supporting Files */,
+				EA285662215A94B9006BDB6B /* ViewControllers */,
 			);
 			path = SaglikAsistani;
 			sourceTree = "<group>";
@@ -236,6 +269,7 @@
 		EA69FB2020ED6C8B0052930E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EA69FAFE20ED6C360052930E /* Info.plist */,
 				EA69FAF920ED6C360052930E /* Assets.xcassets */,
 				EA69FAFB20ED6C360052930E /* LaunchScreen.storyboard */,
 			);
@@ -245,7 +279,6 @@
 		EA69FB2120ED6C960052930E /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
-				EA69FAF620ED6C350052930E /* Login.storyboard */,
 				EA69FAF420ED6C350052930E /* LoginViewController.swift */,
 				EA5B81A220EFD6B300AC6F13 /* LoginCoordinator.swift */,
 			);
@@ -272,7 +305,6 @@
 		EA8BB26020F7DB0B00B07180 /* Main Screen */ = {
 			isa = PBXGroup;
 			children = (
-				EA8BB26120F7DB2100B07180 /* Main.storyboard */,
 				EA8BB26320F7DB4F00B07180 /* MainViewController.swift */,
 			);
 			path = "Main Screen";
@@ -701,7 +733,7 @@
 				CODE_SIGN_ENTITLEMENTS = SaglikAsistani/SaglikAsistani.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 822B4JBRYN;
-				INFOPLIST_FILE = SaglikAsistani/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SaglikAsistani/Core/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -722,7 +754,7 @@
 				CODE_SIGN_ENTITLEMENTS = SaglikAsistani/SaglikAsistani.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 822B4JBRYN;
-				INFOPLIST_FILE = SaglikAsistani/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SaglikAsistani/Core/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
