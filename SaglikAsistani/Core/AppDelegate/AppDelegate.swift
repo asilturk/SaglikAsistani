@@ -13,7 +13,7 @@ import UserNotifications
 
 /// Kullanici gelen bildirime tikladiginda ilgili alana yonlendirmek icin kullanilir.
 protocol PushNotificaitonDelegate: class {
-    func notificationTapped(_ targetURL: URL)
+    func notificationTapped(_ targetURLString: String)
 }
 
 /// MARK: - AppDelegate class
@@ -98,11 +98,8 @@ extension AppDelegate: MessagingDelegate {
 //        HandledPushValues.pageURLString = replacingPageString
 
         let targetURLString = Server.URLString.baseURLString + replacingPageString
-        guard let targetURL = URL.init(string: targetURLString) else {
-            return
-        }
         
-        self.pushNotificationDelegate?.notificationTapped(targetURL)
+        self.pushNotificationDelegate?.notificationTapped(targetURLString)
     }
     
 }

@@ -11,6 +11,7 @@ import Foundation
 struct Server {
     struct URLString {
         static let baseURLString = "http://uygulama.planpiri.com/"
+        static let mobilGo = Server.URLString.baseURLString + "mobil/go/"
     }
     
     static let baseURL = URL.init(string: "http://uygulama.planpiri.com/")

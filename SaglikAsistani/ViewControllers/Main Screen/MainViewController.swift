@@ -78,12 +78,15 @@ extension MainViewController {
     }
     
     /// Webview'in url ve login token'a gore baslatilmasi.
-    fileprivate func startWebView() {
+    // let urlString = "http://uygulama.planpiri.com/mobil/go/" + UserValues.loginToken! // default url bu idi, asagidaki gibi default atadik. Sorun cikarsa yukardaki string i tekrar almak gerekebilir diye commenti silmedim.
+    fileprivate func startWebView(urlString: String = Server.URLString.mobilGo + UserValues.loginToken!) {
         
         if !internetAvailableForLoadWebview() { return }
+    
+        guard let url = URL.init(string: urlString) else {
+            return
+        }
         
-        let urlString = "http://uygulama.planpiri.com/mobil/go/" + UserValues.loginToken!
-        guard let url = URL.init(string: urlString) else { return }
         self.webView.load(URLRequest(url: url))
     }
     
@@ -233,7 +236,8 @@ extension MainViewController {
 
 
 extension MainViewController: PushNotificaitonDelegate {
-    func notificationTapped(_ targetURL: URL) {
-        print("AMAN ALLAHIM :D")
+    func notificationTapped(_ targetURLString: String) {
+        self.startWebView(urlString: targetURLString)
     }
+    
 }
