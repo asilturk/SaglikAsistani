@@ -68,8 +68,16 @@ extension MainViewController {
         DispatchQueue.main.async {
             var frame = CGRect(x: 0, y: 10, width: self.view.frame.width, height: self.view.frame.height)
             
-            if UIDevice.current.iPhoneX {
+            if UIDevice.current.iPhoneX || UIDevice.current.iphoneXS {
                 frame = CGRect(x: 0, y: 40, width: self.view.frame.width, height: self.view.frame.height)
+            }
+            
+            if UIDevice.current.iphoneXR {
+               frame = CGRect(x: 0, y: 40, width: self.view.frame.width, height: self.view.frame.height - 30)
+            }
+            
+            if UIDevice.current.iphoneXSMax {
+                frame = CGRect(x: 0, y: 40, width: self.view.frame.width, height: self.view.frame.height - 30)
             }
             
             self.webView.frame = frame
