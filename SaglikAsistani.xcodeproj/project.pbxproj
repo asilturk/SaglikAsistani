@@ -175,6 +175,14 @@
 			path = Destination;
 			sourceTree = "<group>";
 		};
+		EA0AC7BC21654AB400062688 /* ConnectionManager */ = {
+			isa = PBXGroup;
+			children = (
+				EA0AC7BA21654A4300062688 /* ConnectionManager.swift */,
+			);
+			path = ConnectionManager;
+			sourceTree = "<group>";
+		};
 		EA20709B20ED97310074AF15 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +205,7 @@
 		EA285661215A94B0006BDB6B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EA0AC7BC21654AB400062688 /* ConnectionManager */,
 				EA0AC7B5216547F400062688 /* Destination */,
 				EA0AC7AC2165423B00062688 /* RootVC */,
 				EA285663215A94F4006BDB6B /* Storyboards */,
@@ -232,7 +241,6 @@
 		EA5B81A620EFD7B800AC6F13 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				EA0AC7BA21654A4300062688 /* ConnectionManager.swift */,
 				EA5B81A420EFD7A600AC6F13 /* Server.swift */,
 				EAC0059A20EFE53200648B48 /* ApplicationValues.swift */,
 				EA3D9EF72156588200FE2D69 /* HandledPushValues.swift */,

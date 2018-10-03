@@ -1,8 +1,8 @@
 #  TODO
 
 - Push Notificaiton
-- [TODO] Iphone x e gore margin ata.
-- Uygulama acikken bildirimleri goster
+- [DONE] Iphone x e gore margin ata.
+- [DONE] Uygulama acikken bildirimleri goster
 - InApp purchase
 
 

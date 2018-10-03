@@ -57,6 +57,15 @@ extension AppDelegate: MessagingDelegate {
         self.pushNotificationDelegate?.notificationTapped(targetURLString)
     }
     
+    // uygulama acik iken push notificaiton alindiginda ekranda gosterilmesini saglar.
+    // TODO: Burada bi sekilde gelen mesaji yakalamak ve parse etmek gerecek.
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .badge, .sound])
+        
+        
+
+    }
+    
 }
 
 
