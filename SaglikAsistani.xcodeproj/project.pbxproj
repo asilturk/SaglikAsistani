@@ -10,6 +10,7 @@
 		34CDC0FBB902B32BC25467ED /* Pods_SaglikAsistani.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0608FE1CAF7B9D9BAF18C50C /* Pods_SaglikAsistani.framework */; };
 		7774001F252D45CC30B77E76 /* Pods_SaglikAsistaniTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 410D19851FD20E1BB25C565A /* Pods_SaglikAsistaniTests.framework */; };
 		C13E54EB5FEC01333FCE11C8 /* Pods_SaglikAsistaniUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B22DC937D7D3884398F79A /* Pods_SaglikAsistaniUITests.framework */; };
+		EA0AC7AA21653C0D00062688 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0AC7A921653C0D00062688 /* DeviceType.swift */; };
 		EA20709D20ED97420074AF15 /* SwiftMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20709C20ED97420074AF15 /* SwiftMessages.swift */; };
 		EA3D9EF82156588200FE2D69 /* HandledPushValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3D9EF72156588200FE2D69 /* HandledPushValues.swift */; };
 		EA47C5FC20F9422000CC526D /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA47C5FB20F9422000CC526D /* InternetConnection.swift */; };
@@ -61,6 +62,7 @@
 		7BABC8258414E9AC68126E42 /* Pods-SaglikAsistani.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistani.release.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistani/Pods-SaglikAsistani.release.xcconfig"; sourceTree = "<group>"; };
 		AF8EB7B32AC2CF3567CB4B79 /* Pods-SaglikAsistaniTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniTests/Pods-SaglikAsistaniTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA06EF3021566BF800191EDD /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
+		EA0AC7A921653C0D00062688 /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 		EA20709C20ED97420074AF15 /* SwiftMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMessages.swift; sourceTree = "<group>"; };
 		EA3D9EF72156588200FE2D69 /* HandledPushValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandledPushValues.swift; sourceTree = "<group>"; };
 		EA47C5FB20F9422000CC526D /* InternetConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				EA20709C20ED97420074AF15 /* SwiftMessages.swift */,
 				EA651C9120F9D8B7009B2FB0 /* ActivityIndicator.swift */,
 				EAF7B49E21064CDA00271830 /* EncodeDecode.swift */,
+				EA0AC7A921653C0D00062688 /* DeviceType.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				EAC0059B20EFE53200648B48 /* ApplicationValues.swift in Sources */,
 				EA69FAF320ED6C350052930E /* AppDelegate.swift in Sources */,
 				EAF7B49F21064CDA00271830 /* EncodeDecode.swift in Sources */,
+				EA0AC7AA21653C0D00062688 /* DeviceType.swift in Sources */,
 				EA20709D20ED97420074AF15 /* SwiftMessages.swift in Sources */,
 				EA5B81A520EFD7A600AC6F13 /* Server.swift in Sources */,
 			);

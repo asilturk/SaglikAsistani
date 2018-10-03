@@ -66,7 +66,12 @@ extension MainViewController {
         
         // web view olusturmasi ve atamasi
         DispatchQueue.main.async {
-            let frame = CGRect(x: 0, y: 10, width: self.view.frame.width, height: self.view.frame.height)
+            var frame = CGRect(x: 0, y: 10, width: self.view.frame.width, height: self.view.frame.height)
+            
+            if UIDevice.current.iPhoneX {
+                frame = CGRect(x: 0, y: 40, width: self.view.frame.width, height: self.view.frame.height)
+            }
+            
             self.webView.frame = frame
             self.webView.navigationDelegate = self
             
