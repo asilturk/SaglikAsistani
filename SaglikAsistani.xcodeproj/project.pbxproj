@@ -11,6 +11,7 @@
 		7774001F252D45CC30B77E76 /* Pods_SaglikAsistaniTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 410D19851FD20E1BB25C565A /* Pods_SaglikAsistaniTests.framework */; };
 		C13E54EB5FEC01333FCE11C8 /* Pods_SaglikAsistaniUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B22DC937D7D3884398F79A /* Pods_SaglikAsistaniUITests.framework */; };
 		EA0AC7AA21653C0D00062688 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0AC7A921653C0D00062688 /* DeviceType.swift */; };
+		EA0AC7AE2165424900062688 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0AC7AD2165424900062688 /* RootVC.swift */; };
 		EA20709D20ED97420074AF15 /* SwiftMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20709C20ED97420074AF15 /* SwiftMessages.swift */; };
 		EA3D9EF82156588200FE2D69 /* HandledPushValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3D9EF72156588200FE2D69 /* HandledPushValues.swift */; };
 		EA47C5FC20F9422000CC526D /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA47C5FB20F9422000CC526D /* InternetConnection.swift */; };
@@ -63,6 +64,7 @@
 		AF8EB7B32AC2CF3567CB4B79 /* Pods-SaglikAsistaniTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SaglikAsistaniTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SaglikAsistaniTests/Pods-SaglikAsistaniTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA06EF3021566BF800191EDD /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		EA0AC7A921653C0D00062688 /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
+		EA0AC7AD2165424900062688 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVC.swift; sourceTree = "<group>"; };
 		EA20709C20ED97420074AF15 /* SwiftMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMessages.swift; sourceTree = "<group>"; };
 		EA3D9EF72156588200FE2D69 /* HandledPushValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandledPushValues.swift; sourceTree = "<group>"; };
 		EA47C5FB20F9422000CC526D /* InternetConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
@@ -146,6 +148,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EA0AC7AB216541C800062688 /* GoogleServices */ = {
+			isa = PBXGroup;
+			children = (
+				EA491BAD210363A200DBF73C /* SaglikAsistani.entitlements */,
+				EA491BAB210362EC00DBF73C /* GoogleService-Info.plist */,
+			);
+			path = GoogleServices;
+			sourceTree = "<group>";
+		};
+		EA0AC7AC2165423B00062688 /* RootVC */ = {
+			isa = PBXGroup;
+			children = (
+				EA0AC7AD2165424900062688 /* RootVC.swift */,
+			);
+			path = RootVC;
+			sourceTree = "<group>";
+		};
 		EA20709B20ED97310074AF15 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,12 +187,15 @@
 		EA285661215A94B0006BDB6B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EA0AC7AC2165423B00062688 /* RootVC */,
+				EA285663215A94F4006BDB6B /* Storyboards */,
 				EA285660215A946E006BDB6B /* AppDelegate */,
 				EA5B81A620EFD7B800AC6F13 /* Application */,
+				EA0AC7AB216541C800062688 /* GoogleServices */,
+				EA69FB2020ED6C8B0052930E /* Supporting Files */,
 				EA20709B20ED97310074AF15 /* Extensions */,
 				EA69FB2320ED7EA00052930E /* Validation */,
 				EA5F946120F127B3007E9D1A /* User */,
-				EA69FB2020ED6C8B0052930E /* Supporting Files */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -242,10 +264,7 @@
 		EA69FAF120ED6C350052930E /* SaglikAsistani */ = {
 			isa = PBXGroup;
 			children = (
-				EA285663215A94F4006BDB6B /* Storyboards */,
 				EA285661215A94B0006BDB6B /* Core */,
-				EA491BAD210363A200DBF73C /* SaglikAsistani.entitlements */,
-				EA491BAB210362EC00DBF73C /* GoogleService-Info.plist */,
 				EA285662215A94B9006BDB6B /* ViewControllers */,
 			);
 			path = SaglikAsistani;
@@ -556,6 +575,7 @@
 				EA4EAA4620F546AA005D77C4 /* UserValues.swift in Sources */,
 				EA3D9EF82156588200FE2D69 /* HandledPushValues.swift in Sources */,
 				EAC0059B20EFE53200648B48 /* ApplicationValues.swift in Sources */,
+				EA0AC7AE2165424900062688 /* RootVC.swift in Sources */,
 				EA69FAF320ED6C350052930E /* AppDelegate.swift in Sources */,
 				EAF7B49F21064CDA00271830 /* EncodeDecode.swift in Sources */,
 				EA0AC7AA21653C0D00062688 /* DeviceType.swift in Sources */,
@@ -734,7 +754,7 @@
 			baseConfigurationReference = 468DE5B243C33016468AB186 /* Pods-SaglikAsistani.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SaglikAsistani/SaglikAsistani.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SaglikAsistani/Core/GoogleServices/SaglikAsistani.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 822B4JBRYN;
 				INFOPLIST_FILE = "$(SRCROOT)/SaglikAsistani/Core/Supporting Files/Info.plist";
@@ -755,7 +775,7 @@
 			baseConfigurationReference = 7BABC8258414E9AC68126E42 /* Pods-SaglikAsistani.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SaglikAsistani/SaglikAsistani.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SaglikAsistani/Core/GoogleServices/SaglikAsistani.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 822B4JBRYN;
 				INFOPLIST_FILE = "$(SRCROOT)/SaglikAsistani/Core/Supporting Files/Info.plist";

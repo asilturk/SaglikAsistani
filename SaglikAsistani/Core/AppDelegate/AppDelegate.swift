@@ -26,8 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        self.setRootView()
-        
+        RootVC.shared.setRootView()
         FirebaseApp.configure()
         
         UNUserNotificationCenter.current().delegate = self
@@ -46,30 +45,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
-    
     func applicationDidBecomeActive(_ application: UIApplication) {} /// Login token burda kontrol edilir
     func applicationWillResignActive(_ application: UIApplication) {}
     func applicationDidEnterBackground(_ application: UIApplication) {}
     func applicationWillEnterForeground(_ application: UIApplication) {}
     func applicationWillTerminate(_ application: UIApplication) {}
     
-}
-
-// MARK: - Auxiliary Methods
-extension AppDelegate {
-    
-    /// User token var ise root view main, yoksa login ekranidir.
-    fileprivate func setRootView() {
-        
-        guard let _ = UserValues.loginToken else {
-            let destination = UIStoryboard.init(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginNavigationController") as! UINavigationController
-            self.window?.rootViewController = destination
-            return
-        }
-        
-        let mainVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        self.window?.rootViewController = mainVC
-    }
 }
 
 // MARK: - MessagingDelegate
