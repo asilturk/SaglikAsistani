@@ -58,12 +58,20 @@ extension AppDelegate: MessagingDelegate {
     }
     
     // uygulama acik iken push notificaiton alindiginda ekranda gosterilmesini saglar.
-    // TODO: Burada bi sekilde gelen mesaji yakalamak ve parse etmek gerecek.
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        let userInfo = notification.request.content.userInfo
+//        print(userInfo)
+        
+        guard let pageString = userInfo["page"] as? String else { return }
+        let replacingPageString = pageString.replacingOccurrences(of: ".", with: "/")
+        let targetURLString = Server.URLString.baseURLString + replacingPageString
+        
+        // Bildirime tiklandiginda uygulamayi acip ilgili goreve yonlendirir.
+        self.pushNotificationDelegate?.notificationTapped(targetURLString)
+        
+        // Change this to your preferred presentation option
         completionHandler([.alert, .badge, .sound])
-        
-        
-
     }
     
 }
