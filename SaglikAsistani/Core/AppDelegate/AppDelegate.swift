@@ -25,31 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     weak var pushNotificationDelegate: PushNotificaitonDelegate?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        RootVC.shared.setRootView()
-        FirebaseApp.configure()
-        
-        UNUserNotificationCenter.current().delegate = self
-        
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(
-            options: authOptions,
-            completionHandler: {_, _ in })
-        
-        
-        application.registerForRemoteNotifications()
-        
-        Messaging.messaging().delegate = self
-        
+        self.initializeMethod(application)
         
         return true
     }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {} /// Login token burda kontrol edilir
-    func applicationWillResignActive(_ application: UIApplication) {}
-    func applicationDidEnterBackground(_ application: UIApplication) {}
-    func applicationWillEnterForeground(_ application: UIApplication) {}
-    func applicationWillTerminate(_ application: UIApplication) {}
     
 }
 
@@ -66,24 +45,46 @@ extension AppDelegate: MessagingDelegate {
     
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         print("Received data message: \(remoteMessage.appData)")
-        
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
 
-        guard let pageString = userInfo["page"] as? String else {
-            return
-        }
-
+        guard let pageString = userInfo["page"] as? String else { return }
         let replacingPageString = pageString.replacingOccurrences(of: ".", with: "/")
-//        HandledPushValues.pageURLString = replacingPageString
-
         let targetURLString = Server.URLString.baseURLString + replacingPageString
         
+        // Bildirime tiklandiginda uygulamayi acip ilgili goreve yonlendirir.
         self.pushNotificationDelegate?.notificationTapped(targetURLString)
     }
     
 }
 
 
-
+// MARK: - Auxiliary Methods
+extension AppDelegate {
+    
+    /// AppDelegate baslatilirken default ayarlari atamada kullanilir.
+    fileprivate func initializeMethod(_ application: UIApplication) {
+        RootVC.shared.setRootView()
+        FirebaseApp.configure()
+        
+        self.requestNotificaitonPermission(application)
+        
+        Messaging.messaging().delegate = self
+    }
+    
+    /// Kullanici bildirimleri izni alinir ve push bildirimler acilir.
+    fileprivate func requestNotificaitonPermission(_ application: UIApplication) {
+        UNUserNotificationCenter.current().delegate = self
+        
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
+        
+        
+        application.registerForRemoteNotifications()
+    }
+    
+    
+}
