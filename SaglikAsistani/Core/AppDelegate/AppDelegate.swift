@@ -75,9 +75,11 @@ extension AppDelegate {
     
     /// Kullanici bildirimleri izni alinir ve push bildirimler acilir.
     fileprivate func requestNotificaitonPermission(_ application: UIApplication) {
+        
         UNUserNotificationCenter.current().delegate = self
         
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        
         UNUserNotificationCenter.current().requestAuthorization(
             options: authOptions,
             completionHandler: {_, _ in })

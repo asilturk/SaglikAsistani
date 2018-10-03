@@ -23,13 +23,11 @@ extension RootVC {
     func setRootView() {
         
         guard let _ = UserValues.loginToken else {
-            let destination = UIStoryboard.init(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginNavigationController") as! UINavigationController
-            self.appDelegate.window?.rootViewController = destination
+            self.appDelegate.window?.rootViewController = Destination().LoginVC
             return
         }
         
-        let mainVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        self.appDelegate.window?.rootViewController = mainVC
+        self.appDelegate.window?.rootViewController = Destination().MainVC
     }
     
 
