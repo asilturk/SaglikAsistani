@@ -39,7 +39,9 @@ class MainViewController: UIViewController, WKNavigationDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if !InternetConnection.isConnected() { return }
+        guard ConnectionManager.isInternetAvailable() else {
+            return
+        }
         
         Server.controlUserSession() { (result, message) in
             
@@ -106,7 +108,7 @@ extension MainViewController {
     // Internetin olmamasi durumunda, kullaniciya tekrar baglanmasi icin alert gosterir.
     fileprivate func internetAvailableForLoadWebview() -> Bool {
     
-        if !InternetConnection.isConnected() {
+        if !ConnectionManager.isInternetAvailable() {
             let alert = UIAlertController.init(title: "İnternete bağlı değilsiniz", message: "Lütfen bağlantınızı kontrol edin", preferredStyle: .alert)
             let action = UIAlertAction(title: "Tekrar Dene", style: .default) { (_) in
                 // Tekrar dene butonuna tikladiginda webview'i tekrar yuklemeye calisir.
@@ -141,8 +143,7 @@ extension MainViewController {
         UserValues.loginToken = nil
         UserValues.userId = nil
         
-        let destination = UIStoryboard.init(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginNavigationController") as! UINavigationController
-        self.present(destination, animated: true, completion: nil)
+        self.present(Destination().LoginVC, animated: true)
     }
     
     /// kullanici paylasima tiklandiginda alinan verileri parse etmede kullanilir

@@ -13,9 +13,9 @@
 		EA0AC7AA21653C0D00062688 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0AC7A921653C0D00062688 /* DeviceType.swift */; };
 		EA0AC7AE2165424900062688 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0AC7AD2165424900062688 /* RootVC.swift */; };
 		EA0AC7B92165480400062688 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0AC7B82165480400062688 /* Destination.swift */; };
+		EA0AC7BB21654A4300062688 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0AC7BA21654A4300062688 /* ConnectionManager.swift */; };
 		EA20709D20ED97420074AF15 /* SwiftMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA20709C20ED97420074AF15 /* SwiftMessages.swift */; };
 		EA3D9EF82156588200FE2D69 /* HandledPushValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3D9EF72156588200FE2D69 /* HandledPushValues.swift */; };
-		EA47C5FC20F9422000CC526D /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA47C5FB20F9422000CC526D /* InternetConnection.swift */; };
 		EA491BAC210362EC00DBF73C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA491BAB210362EC00DBF73C /* GoogleService-Info.plist */; };
 		EA4EAA4620F546AA005D77C4 /* UserValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4EAA4520F546AA005D77C4 /* UserValues.swift */; };
 		EA5B81A320EFD6B300AC6F13 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5B81A220EFD6B300AC6F13 /* LoginCoordinator.swift */; };
@@ -67,9 +67,9 @@
 		EA0AC7A921653C0D00062688 /* DeviceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 		EA0AC7AD2165424900062688 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVC.swift; sourceTree = "<group>"; };
 		EA0AC7B82165480400062688 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		EA0AC7BA21654A4300062688 /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		EA20709C20ED97420074AF15 /* SwiftMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftMessages.swift; sourceTree = "<group>"; };
 		EA3D9EF72156588200FE2D69 /* HandledPushValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandledPushValues.swift; sourceTree = "<group>"; };
-		EA47C5FB20F9422000CC526D /* InternetConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
 		EA491BAB210362EC00DBF73C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA491BAD210363A200DBF73C /* SaglikAsistani.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SaglikAsistani.entitlements; sourceTree = "<group>"; };
 		EA4EAA4520F546AA005D77C4 /* UserValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserValues.swift; sourceTree = "<group>"; };
@@ -232,9 +232,9 @@
 		EA5B81A620EFD7B800AC6F13 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				EA0AC7BA21654A4300062688 /* ConnectionManager.swift */,
 				EA5B81A420EFD7A600AC6F13 /* Server.swift */,
 				EAC0059A20EFE53200648B48 /* ApplicationValues.swift */,
-				EA47C5FB20F9422000CC526D /* InternetConnection.swift */,
 				EA3D9EF72156588200FE2D69 /* HandledPushValues.swift */,
 			);
 			path = Application;
@@ -579,7 +579,6 @@
 				EA651C9220F9D8B7009B2FB0 /* ActivityIndicator.swift in Sources */,
 				EA8BB26420F7DB4F00B07180 /* MainViewController.swift in Sources */,
 				EA69FAF520ED6C350052930E /* LoginViewController.swift in Sources */,
-				EA47C5FC20F9422000CC526D /* InternetConnection.swift in Sources */,
 				EA69FB2820ED83450052930E /* SignUpViewController.swift in Sources */,
 				EA69FB2520ED7EA60052930E /* Validator.swift in Sources */,
 				EAC0059720EFE21D00648B48 /* SignUpCoordinator.swift in Sources */,
@@ -588,6 +587,7 @@
 				EAC0059B20EFE53200648B48 /* ApplicationValues.swift in Sources */,
 				EA0AC7AE2165424900062688 /* RootVC.swift in Sources */,
 				EA69FAF320ED6C350052930E /* AppDelegate.swift in Sources */,
+				EA0AC7BB21654A4300062688 /* ConnectionManager.swift in Sources */,
 				EAF7B49F21064CDA00271830 /* EncodeDecode.swift in Sources */,
 				EA0AC7B92165480400062688 /* Destination.swift in Sources */,
 				EA0AC7AA21653C0D00062688 /* DeviceType.swift in Sources */,
